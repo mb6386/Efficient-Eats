@@ -1,0 +1,32 @@
+{% extends 'main/header.html' %}
+{% load static %}
+{% load length %}
+{% load add_main %}
+{% load blurbify %}
+{% load redirect_drinks %}
+{% block content %}
+    {% if restaurants|length == 1 %}
+        {% for restaurant in restaurants %}
+        <div class="container-fluid padding">
+            <div class="row padding">
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="LogoAndName">
+                        <img src="{% static restaurant.logo.url|add_main %}" height="275px" width="auto">
+                        <h2>{{restaurant.name}}</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <p>{{restaurant.description|blurbify}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+    {% if drinks == False %}
+        <button class="btn btn-secondary add_field_button" onclick="window.location.href='/{{request.path|redirect_drinks}}'">Include Drinks</button>
+    {% else %}
+        <button class="btn btn-secondary add_field_button" onclick="window.location.href='/{{request.path|redirect_drinks}}'">Exclude Drinks</button>
+    {% endif %}
+    {% include 'main/includes/protein_table.html' %}
+{% endblock %}
+

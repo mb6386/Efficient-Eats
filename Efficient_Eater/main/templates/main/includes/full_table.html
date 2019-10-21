@@ -1,0 +1,42 @@
+{% load percentify %}
+{% load remove_trailing_zero %}
+
+<table id="fulltable_id" class="display cell-border compact stripe">
+    <thead>
+        <tr>
+            <th> Restaurant </th>
+            <th> Item </th>
+            <th> Calories </th>
+            <th> Total Fat (g) </th>
+            <th> Saturated Fat (g) </th>
+            <th> Trans Fat (g) </th>
+            <th> Cholesterol (mg) </th>
+            <th> Sodium (mg) </th>
+            <th> Carbs (g) </th>
+            <th> Fiber (g) </th>
+            <th> Sugar (g) </th>
+            <th> Protein (g) </th>
+            <th> fl Oz </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{item.restaurant}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.calories | remove_trailing_zero }}</td>
+            <td>{{item.total_fat | remove_trailing_zero }}</td>
+            <td>{{item.sat_fat | remove_trailing_zero }}</td>
+            <td>{{item.trans_fat | remove_trailing_zero }}</td>
+            <td>{{item.cholesterol | remove_trailing_zero }}</td>
+            <td>{{item.sodium | remove_trailing_zero }}</td>
+            <td>{{item.carbs | remove_trailing_zero }}</td>
+            <td>{{item.fiber | remove_trailing_zero }}</td>
+            <td>{{item.sugar | remove_trailing_zero }}</td>
+            <td>{{item.protein | remove_trailing_zero }}</td>
+            <td>{{item.floz | remove_trailing_zero }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
