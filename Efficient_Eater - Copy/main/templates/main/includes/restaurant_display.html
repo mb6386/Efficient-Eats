@@ -1,0 +1,6 @@
+{% load static %}
+{% load add_main %}
+{% for restaurant in restaurants %}
+    <p>{{restaurant.name}}</p>
+    <img src="{% static restaurant.logo.url|add_main %}" height="100px" width="auto">
+{% endfor %}

@@ -1,0 +1,216 @@
+{% load increment %}
+{% load common %}
+{% load static %}
+{{ item_list|json_script:"items" }}
+<link rel="stylesheet" href="{% static 'main/css/styling.css' %}">
+<main role="main" class="container">
+    <h2>Build a Meal</h2><br>
+    <h5>&nbsp&nbsp Select a Restaurant</h5>
+    <form method="GET">
+      <div class="form-group col-md-4">
+          <select id="inputState" name="restaurantName" class="form-control" onchange="location = this.value;">
+            {% if chosen_restaurant == "All" %}
+                <option value ="/calculator/all/" selected>All Restaurants</option>
+                 {% for restaurant in restaurants %}
+                    <option value="/calculator/{{ restaurant.slug }}/">{{ restaurant.name }}</option>
+                 {% endfor %}
+            {% else %}
+                <option value="/calculator/{{ chosen_restaurant.slug }}/" selected>{{ chosen_restaurant.name }}</option>
+                <option value="/calculator/all/">All Restaurants</option>
+                {% for restaurant in restaurants %}
+                    <option value="/calculator/{{ restaurant.slug }}/">{{ restaurant.name }}</option>
+                {% endfor %}
+            {% endif %}
+          </select>
+          {% if chosen_restaurant != "All" %}
+            <img src = "/static/main/{{chosen_restaurant.logo.url}}" class="calculator-restaurant-thumbnail">
+          {% endif %}
+      </div>
+      <div class="container">
+          <br>
+          <h5>Enter Your Order</h5>
+        <table id="myTable" class="table order-list">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Item</td>
+                <td>Quantity</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><h3>1.</h3></td>
+                <td class="col-sm-3">
+                 <div class="autocomplete">
+                    <input type="search" id="myInput1" class="myInput form-control" placeholder="Enter Item" name="itemName1" autocomplete="off">
+                  </div>
+                </td>
+                <td class="col-sm-1">
+                    <select class="custom-select" name="itemQuantity1">
+                    {% for option in options %}
+                    <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                    </select>
+                </td>
+                <td class="col-sm-1"><a class="deleteRow"></a>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                    <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Item" />
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+    </div>
+    <div class="form-row">
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </div>
+</form>
+    <div class="Results">
+    <h3>Your Order</h3>
+    {% for item in output %}
+        <p>{{ item | safe }}</p>
+    {% endfor %}
+</div>
+</main>
+<script>
+/* Autofill search for items */
+
+var items = JSON.parse(document.getElementById('items').textContent);
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+              b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+      x[i].parentNode.removeChild(x[i]);
+    }
+  }
+}
+/*execute a function when someone clicks in the document:*/
+document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+});
+}
+autocomplete(document.getElementById("myInput1"), items);
+/* Add rows to form dynamically */
+
+var counter = 1;
+$("#addrow").on("click", function () {
+    if (counter < 20){
+        counter++;
+        var newRow = $("<tr>");
+        var cols = "";
+        var optionList;
+        for (var x = 1; x < 21; x++) {
+            optionList += '<option value=' + x + '>' + x + '</option>';
+        }
+        cols += '<td><h3>' + counter + '.</h3></td>'
+        cols += '<td><input type="search" id="myInput' + counter + '" class="myInput form-control" placeholder = "Enter Item" name="itemName' + counter + '" autocomplete="off"/></td>';
+        cols += '<td><select class = "custom-select" name = "itemQuantity' + counter + '">' + optionList +'</select></td>';
+        cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+
+        newRow.append(cols);
+        $("table.order-list").append(newRow);
+
+        var element = document.getElementById("myInput"+counter);
+        console.log(element);
+
+        autocomplete(document.getElementById("myInput"+counter), items);
+
+    }
+});
+
+$("table.order-list").on("click", ".ibtnDel", function (event) {
+    $(this).closest("tr").remove();
+    counter -= 1
+});
+
+</script>
+
+
