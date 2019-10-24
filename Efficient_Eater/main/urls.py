@@ -18,7 +18,6 @@ from django.urls import path, include
 from django.conf.urls import url
 from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from ajax_select import urls as ajax_select_urls
 
 app_name = "main"
 

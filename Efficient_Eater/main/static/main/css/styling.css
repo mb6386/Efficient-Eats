@@ -1,16 +1,19 @@
 .calculator-restaurant-thumbnail {
     height: 125px;
     width: auto;
-    padding: 20px
-
+    padding: 20px;
 }
-
+.order-restaurant-thumbnail {
+    height: 36px;
+    width: auto;
+}
 /* Autofill search bar */
 
 .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
 }
+
 input {
   border: 1px solid transparent;
   background-color: #f1f1f1;

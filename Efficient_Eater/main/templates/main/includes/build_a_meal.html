@@ -42,9 +42,15 @@
                  <div class="autocomplete">
                     <input type="search" id="myInput1" class="myInput form-control" placeholder="Enter Item" name="itemName1" autocomplete="off" list="itemList">
                      <datalist id="itemList">
-                         {% for item in items %}
-                         <option value="{{ item }}">{{ item }}</option>
-                         {% endfor %}
+                         {% if chosen_restaurant == "All" %}
+                             {% for item in items %}
+                             <option value="{{ item }} | {{ item.restaurant }}">{{ item }} | {{ item.restaurant }}</option>
+                             {% endfor %}
+                         {% else %}
+                             {% for item in items %}
+                             <option value="{{ item }}">{{ item }}</option>
+                             {% endfor %}
+                         {% endif %}
                      </datalist>
                   </div>
                 </td>
@@ -75,9 +81,34 @@
 </form>
     <div class="Results">
     <h3>Your Order</h3>
-    {% for itemList in order %}
-        <p><b>{{ itemList.0 }}</b>. {{ itemList.1 }} ({{ itemList.2 }})</p>
-    {% endfor %}
+    <table id="orderTable" class="table order">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td></td>
+                <td>Item</td>
+                <td>Quantity</td>
+                <td>Calories</td>
+                <td>Carbs</td>
+                <td>Fat</td>
+                <td>Protein</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for itemList in order %}
+            <tr>
+                <td><b>{{ itemList.0 }}.</b></td>
+                <td><img src="/static/main/{{ itemList.8.url }}" class="order-restaurant-thumbnail"></td>
+                <td>{{ itemList.1 }}</td>
+                <td>{{ itemList.2 }}</td>
+                <td>{{ itemList.4 }}</td>
+                <td>{{ itemList.5 }}</td>
+                <td>{{ itemList.6 }}</td>
+                <td>{{ itemList.7 }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
 </main>
 <script>

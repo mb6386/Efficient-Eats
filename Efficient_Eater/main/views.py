@@ -52,7 +52,7 @@ def calculator(request, restaurant_slug=""):
     searched_items = []
     for i in range(1,21):
         searched_items.append(request.GET.get(f'itemName{i}'))
-    print(f"\n\n\n {searched_items} \n\n\n")
+    #print(f"\n\n\n {searched_items} \n\n\n")
     searched_items_quantity = []
     for i in range(1,21):
         searched_items_quantity.append(request.GET.get(f'itemQuantity{i}'))
@@ -67,7 +67,7 @@ def calculator(request, restaurant_slug=""):
     options = []
     for i in range(1,21):
         options.append(i)
-    order = calculator_order(searched_items, searched_items_quantity, len(searched_items))
+    order = calculator_order(searched_items, searched_items_quantity, len(searched_items), chosen_restaurant)
     output = calculate_nutrition(order)
     context={"restaurants": restaurants,
              "items": items,
@@ -78,14 +78,33 @@ def calculator(request, restaurant_slug=""):
              "output": output}
     return render(request, template_name, context)
 
-def calculator_order(searched_items, searched_items_quantity, length):
+def calculator_order(searched_items, searched_items_quantity, length, chosen_restaurant):
     order = []
     valid_counter = 1
     for i in range(length):
         if is_valid_queryparam(searched_items[i]):
-            if len((Item.objects.filter(id=searched_items[i]))) == 1:
-                order.append([valid_counter,f"{Item.objects.filter(id=searched_items[i])[0]}",searched_items_quantity[i]])
+            if chosen_restaurant != "All":
+                item_name = searched_items[i]
+                item_restaurant=chosen_restaurant
+            else:
+                item_name = searched_items[i].split(' | ')[0]
+                item_restaurant = searched_items[i].split(' | ')[1]
+            itemQuery = Item.objects.filter(name__iexact=item_name).filter(restaurant__name__iexact=item_restaurant)
+            if len(itemQuery) == 1:
+                item = itemQuery[0]
+                itemQuantity = int(searched_items_quantity[i])
+                restaurant = Restaurant.objects.filter(name__iexact=item_restaurant)[0]
+                order.append([valid_counter, #Number of valid item in order
+                              f"{item}", #Name of item
+                              itemQuantity, #Quantity of item
+                              item.id, #ID of item
+                              item.calories*itemQuantity, #Calories of item in the quantity ordered
+                              item.carbs*itemQuantity, #Carbs of item in the quantity ordered
+                              item.total_fat*itemQuantity, #Fats of item in the quantity ordered
+                              item.protein*itemQuantity, #Protein of item in the quantity ordered
+                              restaurant.logo])
                 valid_counter+=1
+
     return order
 
 def calculate_nutrition(order):
@@ -100,9 +119,24 @@ def calculate_nutrition(order):
     sugar = 0
     protein = 0
     floz = 0
-    #for itemList in order:
-        #print(Item.objects.filter(id=itemList[1])[0].calories)
-        #calories += (itemList[2] * Item.objects.filter(name=itemList[1])[0].calories)
+    for itemList in order:
+        item = Item.objects.filter(id=itemList[3])[0]
+        itemQuantity = int(itemList[2])
+        #Calculate all nutritional information
+        calories+=(itemList[4])
+        total_fat+=(itemList[6])
+        sat_fat+=(itemQuantity*item.sat_fat)
+        trans_fat+=(itemQuantity*item.cholesterol)
+        cholesterol+=(itemQuantity*item.cholesterol)
+        sodium+=(itemQuantity*item.sodium)
+        carbs+=(itemList[5])
+        fiber+=(itemQuantity*item.fiber)
+        sugar+=(itemQuantity*item.sugar)
+        protein+=(itemList[7])
+        if item.type_of_item == "drink":
+            floz = (itemQuantity*item.floz)
+        else:
+            floz = None
 
     print(f"\n {calories} \n")
 
@@ -118,4 +152,3 @@ def contact(request):
                   context={"restaurants":Restaurant.objects.all(),
                            "items": Item.objects.all()})
 
-#"items": Item.objects.all( ).exclude(calories__lte=500).order_by('protein')
