@@ -53,6 +53,20 @@
                 <td><input type="text" id="calorie-max" name="calorie-max"></td>
             </tr>
             <tr>
+                <td><h6>Carbs: &nbsp</h6></td>
+                <td>Minimum:</td>
+                <td><input type="text" id="carbs-min" name="carbs-min"></td>
+                <td>Maximum:</td>
+                <td><input type="text" id="carbs-max" name="carbs-max"></td>
+            </tr>
+            <tr>
+                <td><h6>Fats: &nbsp</h6></td>
+                <td>Minimum:</td>
+                <td><input type="text" id="fats-min" name="fats-min"></td>
+                <td>Maximum:</td>
+                <td><input type="text" id="fats-max" name="fats-max"></td>
+            </tr>
+            <tr>
                 <td><h6>Protein: &nbsp</h6></td>
                 <td>Minimum:</td>
                 <td><input type="text" id="protein-min" name="protein-min"></td>
@@ -103,19 +117,38 @@ $.fn.dataTable.ext.search.push(
         var calorie_min = parseInt( $('#calorie-min').val(), 10 );
         var calorie_max = parseInt( $('#calorie-max').val(), 10 );
         var calories = parseFloat( data[2] ) || 0; // use data for the calories column
+        var carbs_min = parseInt( $('#carbs-min').val(), 10 );
+        var carbs_max = parseInt( $('#carbs-max').val(), 10 );
+        var carbs = parseFloat( data[3] ) || 0; // use data for the carbs column
+        var fat_min = parseInt( $('#fat-min').val(), 10 );
+        var fat_max = parseInt( $('#fat-max').val(), 10 );
+        var fat = parseFloat( data[4] ) || 0; // use data for the fat column
         var protein_min = parseInt( $('#protein-min').val(), 10 );
         var protein_max = parseInt( $('#protein-max').val(), 10 );
         var protein = parseFloat( data[5] ) || 0; // use data for the protein column
+
 
         if ( ( isNaN( calorie_min ) && isNaN( calorie_max ) ) ||
              ( isNaN( calorie_min ) && calories <= calorie_max ) ||
              ( calorie_min <= calories   && isNaN( calorie_max ) ) ||
              ( calorie_min <= calories  && calories <= calorie_max ) )
 
+        if ( ( isNaN( carbs_min ) && isNaN( carbs_max ) ) ||
+           ( isNaN( carbs_min ) && carbs <= carbs_max ) ||
+           ( carbs_min <= carbs   && isNaN( carbs_max ) ) ||
+           ( carbs_min <= carbs  && carbs <= carbs_max ) )
+
+        if ( ( isNaN( fat_min ) && isNaN( fat_max ) ) ||
+           ( isNaN( fat_min ) && fat <= fat_max ) ||
+           ( fat_min <= fat   && isNaN( fat_max ) ) ||
+           ( fat_min <= fat  && fat <= fat_max ) )
+
         if ( ( isNaN( protein_min ) && isNaN( protein_max ) ) ||
              ( isNaN( protein_min ) && protein <= protein_max ) ||
              ( protein_min <= protein   && isNaN( protein_max ) ) ||
              ( protein_min <= protein  && protein <= protein_max ) )
+
+
     {
         return true;
     }
