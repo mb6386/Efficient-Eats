@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8afbef91-9912-4c56-9ea4-3bc24eb738ba" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Efficient_Eater.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Efficient_Eater.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/static/main/css/styling.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/main/css/styling.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/main/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/templates/main/includes/build_a_meal.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/includes/build_a_meal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/main/includes/protein_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/includes/protein_table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="95" column="116" selection-start-line="95" selection-start-column="116" selection-end-line="95" selection-end-column="116" />
+            <state relative-caret-position="171">
+              <caret line="160" column="23" lean-forward="true" selection-start-line="160" selection-start-column="23" selection-end-line="160" selection-end-column="23" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -43,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/templates/main/includes/build_a_meal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="108" column="7" lean-forward="true" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
+            <state relative-caret-position="442">
+              <caret line="199" selection-start-line="199" selection-end-line="199" />
             </state>
           </provider>
         </entry>
@@ -55,7 +49,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/templates/main/includes/protein_table.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
+            <state relative-caret-position="577">
               <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
             </state>
           </provider>
@@ -70,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/static/main/css/styling.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
+            <state relative-caret-position="170">
+              <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -121,7 +115,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>--&gt;</find>
       <find>caption</find>
       <find>carousel-caption</find>
       <find>h1</find>
@@ -151,6 +144,7 @@
       <find>domi</find>
       <find>autocomplete-items</find>
       <find>is_valid</find>
+      <find>x</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -205,18 +199,18 @@
         <option value="$PROJECT_DIR$/Efficient_Eater/settings.py" />
         <option value="$PROJECT_DIR$/main/urls.py" />
         <option value="$PROJECT_DIR$/main/templates/main/nutrition.html" />
-        <option value="$PROJECT_DIR$/main/views.py" />
         <option value="$PROJECT_DIR$/main/templates/main/includes/protein_table.html" />
         <option value="$PROJECT_DIR$/main/templates/main/header.html" />
-        <option value="$PROJECT_DIR$/main/templates/main/includes/build_a_meal.html" />
         <option value="$PROJECT_DIR$/main/static/main/css/styling.css" />
+        <option value="$PROJECT_DIR$/main/views.py" />
+        <option value="$PROJECT_DIR$/main/templates/main/includes/build_a_meal.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="597" />
-    <option name="y" value="62" />
-    <option name="width" value="1412" />
+    <option name="x" value="997" />
+    <option name="y" value="96" />
+    <option name="width" value="1201" />
     <option name="height" value="1087" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -413,10 +407,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="514" y="62" width="1412" height="1087" extended-state="0" />
+    <frame x="872" y="96" width="1326" height="1087" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12818645" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13675214" />
       <window_info id="Structure" order="1" weight="0.24871355" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -707,23 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="95" column="116" selection-start-line="95" selection-start-column="116" selection-end-line="95" selection-end-column="116" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/main/includes/protein_table.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/templates/main/header.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
@@ -731,17 +708,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/main/includes/build_a_meal.html">
+    <entry file="file://$PROJECT_DIR$/main/static/main/css/styling.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="108" column="7" lean-forward="true" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
+        <state relative-caret-position="170">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/static/main/css/styling.css">
+    <entry file="file://$PROJECT_DIR$/main/templates/main/includes/protein_table.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
+        <state relative-caret-position="577">
+          <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="160" column="23" lean-forward="true" selection-start-line="160" selection-start-column="23" selection-end-line="160" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/templates/main/includes/build_a_meal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="199" selection-start-line="199" selection-end-line="199" />
         </state>
       </provider>
     </entry>
