@@ -94,7 +94,6 @@ def calculator_order(searched_items, searched_items_quantity, length, chosen_res
                     item_restaurant = searched_items[i].split(' | ')[1]
 
             itemQuery = Item.objects.filter(name__iexact=item_name).filter(restaurant__name__iexact=item_restaurant)
-            print(itemQuery)
             if len(itemQuery) == 1:
                 item = itemQuery[0]
                 itemQuantity = int(searched_items_quantity[i])
@@ -163,7 +162,6 @@ def calculate_nutrition(order):
         "protein": protein,
         "floz": floz
     }
-    print(results)
     return results
 
 def methodology(request):
