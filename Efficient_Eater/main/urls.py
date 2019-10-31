@@ -37,6 +37,12 @@ urlpatterns = [
             path('all/', views.calculator, name="calculator_all"),
             path('<slug:restaurant_slug>/', views.calculator, name="calculator_restaurant")]))
     ])),
+    path('lookup/', include([
+        path('<slug:restaurant_slug>/', include([
+            path('', views.lookup, name="lookup_restaurant"),
+            path('<slug:item_slug>/', views.lookup, name="lookup_restaurant_item")])),
+        path('', views.lookup, name="lookup")
+    ])),
     path('methodology/', views.methodology, name="methodology"),
     path('contact/', views.contact, name="contact"),
 ]

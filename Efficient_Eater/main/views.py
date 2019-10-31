@@ -12,7 +12,6 @@ def homepage(request):
                            "items": Item.objects.all()})
 
 def nutrition(request, restaurant_slug="", drinks=""):
-    request = request
     template_name = "main/nutrition.html"
     chosen_restaurant = "All"
     if restaurant_slug != "":
@@ -52,11 +51,9 @@ def calculator(request, restaurant_slug=""):
     searched_items = []
     for i in range(1,21):
         searched_items.append(request.GET.get(f'itemName{i}'))
-    #print(f"\n\n\n {searched_items} \n\n\n")
     searched_items_quantity = []
     for i in range(1,21):
         searched_items_quantity.append(request.GET.get(f'itemQuantity{i}'))
-
     chosen_restaurant = "All"
     if restaurant_slug != "":
         items = Item.objects.filter(restaurant__slug=restaurant_slug)
@@ -163,6 +160,27 @@ def calculate_nutrition(order):
         "floz": floz
     }
     return results
+
+def lookup(request, restaurant_slug="", item_slug=""):
+    template_name = "main/lookup.html"
+
+    if restaurant_slug != "":
+        if item_slug != "":
+            context = {
+                "restaurants": Restaurant.objects.filter(slug__iexact=restaurant_slug),
+                "items": Item.objects.filter(restaurant__slug__iexact=restaurant_slug).filter(slug_iexact=item_slug),
+            }
+        else:
+            context = {
+                "restaurants": Restaurant.objects.filter(slug__iexact=restaurant_slug),
+                "items": Item.objects.filter(restaurant__slug__iexact=restaurant_slug),
+            }
+    else:
+        context = {
+            "restaurants": Restaurant.objects.all(),
+            "items": Item.objects.all(),
+        }
+    return render(request, template_name, context)
 
 def methodology(request):
     return render(request = request,
