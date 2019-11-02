@@ -163,23 +163,21 @@ def calculate_nutrition(order):
 
 def lookup(request, restaurant_slug="", item_slug=""):
     template_name = "main/lookup.html"
-
+    chosen_restaurant="All"
+    restaurants = Restaurant.objects.all()
+    items = Item.objects.all()
     if restaurant_slug != "":
+        chosen_restaurant = Restaurant.objects.filter(slug=restaurant_slug)[0]
         if item_slug != "":
-            context = {
-                "restaurants": Restaurant.objects.filter(slug__iexact=restaurant_slug),
-                "items": Item.objects.filter(restaurant__slug__iexact=restaurant_slug).filter(slug_iexact=item_slug),
-            }
+            items = Item.objects.filter(restaurant__iexact=chosen_restaurant).filter(slug_iexact=item_slug)
         else:
-            context = {
-                "restaurants": Restaurant.objects.filter(slug__iexact=restaurant_slug),
-                "items": Item.objects.filter(restaurant__slug__iexact=restaurant_slug),
-            }
-    else:
-        context = {
-            "restaurants": Restaurant.objects.all(),
-            "items": Item.objects.all(),
-        }
+            items = Item.objects.filter(restaurant__slug__iexact=restaurant_slug)
+
+    context = {
+        "items":items,
+        "restaurants":restaurants,
+        "chosen_restaurant":chosen_restaurant,
+    }
     return render(request, template_name, context)
 
 def methodology(request):

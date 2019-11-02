@@ -1,4 +1,26 @@
 {% extends "main/header.html" %}
 {% block content %}
-    {% include "main/includes/build_a_meal.html" %}
+    <main role="main" class="container">
+    <h2>Lookup an Item</h2><br>
+    <h5>&nbsp&nbsp Select a Restaurant</h5>
+    <form method="GET">
+      <div class="form-group col-md-4">
+          <select id="inputState" name="restaurantName" class="form-control" onchange="location = this.value;">
+            {% if chosen_restaurant == "All" %}
+                <option value ="/lookup/all/" selected>All Restaurants</option>
+                 {% for restaurant in restaurants %}
+                    <option value="/lookup/{{ restaurant.slug }}/">{{ restaurant.name }}</option>
+                 {% endfor %}
+            {% else %}
+                <option value="/lookup/{{ chosen_restaurant.slug }}/" selected>{{ chosen_restaurant.name }}</option>
+                <option value="/lookup/all/">All Restaurants</option>
+                {% for restaurant in restaurants %}
+                    <option value="/lookup/{{ restaurant.slug }}/">{{ restaurant.name }}</option>
+                {% endfor %}
+            {% endif %}
+          </select>
+          {% if chosen_restaurant != "All" %}
+            <img src = "/static/main/{{chosen_restaurant.logo.url}}" class="calculator-restaurant-thumbnail">
+          {% endif %}
+      </div>
 {% endblock %}

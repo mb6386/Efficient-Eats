@@ -108,7 +108,8 @@
     </div>
 </form>
     {% if order|length != 0 %}
-    <div id="piechart"></div>
+    {% include 'main/includes/nutrition_facts.html' %}
+
     <div class="Results">
     <h3>Your Order</h3>
         {% for key, value in output.items %}
@@ -174,32 +175,6 @@ $("#addrow").on("click", function () {
 $("table.order-list").on("click", ".ibtnDel", function (event) {
     $(this).closest("tr").remove();
     counter -= 1
-});
-
-/* Pie chart */
-anychart.onDocumentReady(function() {
-
-  // set the data
-  var data = [
-      {x: "Carbs", value: {{ output.carbs }}, normal: {fill: "#00FFFF"} },
-      {x: "Fat", value: {{ output.total_fat }}, normal: {fill: "#00FF00"} },
-      {x: "Protein", value: {{ output.protein }}, normal: {fill: "#FF0000"} },
-  ];
-
-  // create the chart
-  var chart = anychart.pie();
-
-  // set the chart title
-  chart.title("Population by Race for the United States: 2010 Census");
-
-  // add the data
-  chart.data(data);
-
-  // display the chart in the container
-  chart.container('piechart');
-
-  chart.draw();
-
 });
 </script>
 
