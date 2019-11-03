@@ -1,7 +1,7 @@
 from django import template
 
 register = template.Library()
+
 @register.filter
-def increment(value):
-    value+=1
-    return value
+def key(d, key_name):
+    return d[key_name]

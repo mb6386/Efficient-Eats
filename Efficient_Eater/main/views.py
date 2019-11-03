@@ -147,23 +147,24 @@ def calculate_nutrition(order):
             floz = None
 
     results = {
-        "calories": calories,
-        "total_fat": total_fat,
-        "sat_fat": sat_fat,
-        "trans_fat": trans_fat,
-        "cholesterol": cholesterol,
-        "sodium": sodium,
-        "carbs": carbs,
-        "fiber": fiber,
-        "sugar": sugar,
-        "protein": protein,
-        "floz": floz
+        "calories": int(calories),
+        "total_fat": int(total_fat),
+        "sat_fat": int(sat_fat),
+        "trans_fat": int(trans_fat),
+        "cholesterol": int(cholesterol),
+        "sodium": int(sodium),
+        "carbs": int(carbs),
+        "fiber": int(fiber),
+        "sugar": int(sugar),
+        "protein": int(protein),
+        "floz": floz,
+        "calories_from_fat": int(total_fat * 9),
     }
     return results
 
 def lookup(request, restaurant_slug="", item_slug=""):
     template_name = "main/lookup.html"
-    chosen_restaurant="All"
+    chosen_restaurant= "All"
     restaurants = Restaurant.objects.all()
     items = Item.objects.all()
     if restaurant_slug != "":
@@ -174,9 +175,9 @@ def lookup(request, restaurant_slug="", item_slug=""):
             items = Item.objects.filter(restaurant__slug__iexact=restaurant_slug)
 
     context = {
-        "items":items,
-        "restaurants":restaurants,
-        "chosen_restaurant":chosen_restaurant,
+        "items": items,
+        "restaurants": restaurants,
+        "chosen_restaurant": chosen_restaurant,
     }
     return render(request, template_name, context)
 

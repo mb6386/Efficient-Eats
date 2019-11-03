@@ -1,3 +1,5 @@
+{% load key %}
+{% load multiply %}
 <section class="performance-facts">
   <header class="performance-facts__header">
     <h1 class="performance-facts__title">Nutrition Facts</h1>
@@ -15,10 +17,19 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <b>Calories</b> 200
+          <b>Calories</b>
+          {% for key, value in output.items %}
+            {% if key == "calories" %}
+              {{ value }}
+            {% endif %}
+          {% endfor %}
         </th>
         <td>
-          Calories from Fat 130
+          Calories from Fat {% for key, value in output.items %}
+            {% if key == "calories_from_fat" %}
+              {{ value }}
+            {% endif %}
+          {% endfor %}
         </td>
       </tr>
       <tr class="thick-row">
@@ -28,7 +39,11 @@
       </tr>
       <tr>
         <th colspan="2">
-          <b>Total Fat</b> 14g
+          <b>Total Fat</b> {% for key, value in output.items %}
+            {% if key == "total_fat" %}
+              {{ value }}g
+            {% endif %}
+          {% endfor %}
         </th>
         <td>
           <b>22%</b>
