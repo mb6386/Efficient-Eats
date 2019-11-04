@@ -134,7 +134,7 @@ def calculate_nutrition(order):
         calories+=(itemList[4])
         total_fat+=(itemList[6])
         sat_fat+=(itemQuantity*item.sat_fat)
-        trans_fat+=(itemQuantity*item.cholesterol)
+        trans_fat+=(itemQuantity*item.trans_fat)
         cholesterol+=(itemQuantity*item.cholesterol)
         sodium+=(itemQuantity*item.sodium)
         carbs+=(itemList[5])
@@ -159,6 +159,12 @@ def calculate_nutrition(order):
         "protein": int(protein),
         "floz": floz,
         "calories_from_fat": int(total_fat * 9),
+        "total_fat_daily_value": int((total_fat/65)*100),
+        "sat_fat_daily_value": int((sat_fat/20)*100),
+        "cholesterol_daily_value": int((cholesterol/300)*100),
+        "sodium_daily_value": int((sodium/2400)*100),
+        "carbs_daily_value": int((carbs/300)*100),
+        "fiber_daily_value": int((fiber/25)*100),
     }
     return results
 
@@ -167,6 +173,8 @@ def lookup(request, restaurant_slug="", item_slug=""):
     chosen_restaurant= "All"
     restaurants = Restaurant.objects.all()
     items = Item.objects.all()
+    myItem = [request.GET.get('myInput')]
+
     if restaurant_slug != "":
         chosen_restaurant = Restaurant.objects.filter(slug=restaurant_slug)[0]
         if item_slug != "":
@@ -174,10 +182,14 @@ def lookup(request, restaurant_slug="", item_slug=""):
         else:
             items = Item.objects.filter(restaurant__slug__iexact=restaurant_slug)
 
+    order = calculator_order(myItem, [1], len(myItem), chosen_restaurant)
+    output = calculate_nutrition(order)
     context = {
         "items": items,
         "restaurants": restaurants,
         "chosen_restaurant": chosen_restaurant,
+        "order": order,
+        "output": output,
     }
     return render(request, template_name, context)
 

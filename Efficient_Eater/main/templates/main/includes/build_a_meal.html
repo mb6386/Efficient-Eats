@@ -108,13 +108,8 @@
     </div>
 </form>
     {% if order|length != 0 %}
-    {% include 'main/includes/nutrition_facts.html' %}
-
     <div class="Results">
-    <h3>Your Order</h3>
-        {% for key, value in output.items %}
-            <p><b>{{ key }}:</b> {{ value }}</p>
-        {% endfor %}
+    {% include 'main/includes/nutrition_facts.html' %}
 
     <table id="orderTable" class="table order">
         <thead>
