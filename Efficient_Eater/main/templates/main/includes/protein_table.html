@@ -92,7 +92,7 @@
                             <tr>
                                 {% filter capfirst %}
                                 <td>{{ item.restaurant }}</td>
-                                <td>{{ item.name }}</td>
+                                <td><a href="/lookup/{{ item.restaurant.slug }}/{{ item.slug }}/" target="_blank">{{ item.name }}</a></td>
                                 {% endfilter %}
                                 <td>{{ item.calories }}</td>
                                 <td>{{ item.carbs|remove_trailing_zero }}</td>

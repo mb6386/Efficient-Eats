@@ -129,7 +129,7 @@
             <tr>
                 <td><b>{{ itemList.0 }}.</b></td>
                 <td><img src="/static/main/{{ itemList.8.url }}" class="order-restaurant-thumbnail"></td>
-                <td>{{ itemList.1 }}</td>
+                <td><a href="/lookup/{{ itemList.12|slugify }}/{{ itemList.1|slugify }}/" target="_blank">{{ itemList.1 }}</a></td>
                 <td>{{ itemList.2 }}</td>
                 <td>{{ itemList.4 }}</td>
                 <td>{{ itemList.5 }}</td>

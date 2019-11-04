@@ -16,12 +16,6 @@
 
 /* Nutrition Label */
 @charset "UTF-8";
-.image {
-  width: 250px;
-  float: left;
-  margin: 20px;
-}
-
 body {
   font-size: small;
   line-height: 1.4;
@@ -35,7 +29,7 @@ p {
   border: 1px solid black;
   margin: 20px;
   float: left;
-  width: 360px;
+  width: 370px;
   padding: 0.5rem;
 }
 .performance-facts table {

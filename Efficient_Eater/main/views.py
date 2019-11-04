@@ -174,13 +174,12 @@ def lookup(request, restaurant_slug="", item_slug=""):
     restaurants = Restaurant.objects.all()
     items = Item.objects.all()
     myItem = [request.GET.get('myInput')]
-
     if restaurant_slug != "":
-        chosen_restaurant = Restaurant.objects.filter(slug=restaurant_slug)[0]
-        if item_slug != "":
-            items = Item.objects.filter(restaurant__iexact=chosen_restaurant).filter(slug_iexact=item_slug)
-        else:
-            items = Item.objects.filter(restaurant__slug__iexact=restaurant_slug)
+        chosen_restaurant = Restaurant.objects.filter(slug__iexact=restaurant_slug)[0]
+        items = Item.objects.filter(restaurant__slug__iexact=restaurant_slug)
+        if item_slug != "" and myItem[0] is None:
+            myItem = Item.objects.filter(restaurant__slug__iexact=restaurant_slug).filter(slug__iexact=item_slug)
+
 
     order = calculator_order(myItem, [1], len(myItem), chosen_restaurant)
     output = calculate_nutrition(order)
@@ -191,6 +190,7 @@ def lookup(request, restaurant_slug="", item_slug=""):
         "order": order,
         "output": output,
     }
+
     return render(request, template_name, context)
 
 def methodology(request):
