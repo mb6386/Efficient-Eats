@@ -1,4 +1,4 @@
-<div id="piechart"></div>
+<div id="piechart" style="width: 300px; height: 500px;"></div>
 <script>
 /* Pie chart */
 anychart.onDocumentReady(function() {
@@ -21,8 +21,12 @@ anychart.onDocumentReady(function() {
 
   // display the chart in the container
   chart.container('piechart');
-
+  // set legend position
+  chart.legend().position("bottom");
+  // set items layout
+  chart.legend().itemsLayout("horizontal");
+  chart.normal().stroke("#669999", 3);
+  chart.radius("48%")
   chart.draw();
-
 });
 </script>
