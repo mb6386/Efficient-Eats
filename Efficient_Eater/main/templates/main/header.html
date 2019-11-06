@@ -4,9 +4,10 @@
     {% load static %}
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Efficient Eats</title>
     <!-- Tab Logo -->
-    <link rel="shortcut icon" href="{% static 'main/media/burger.png' %}">
+    <link rel="icon" href="{% static 'main/media/burger.png' %}">
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'main/css/styling.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -25,6 +26,15 @@
     <!-- needed for Pie Charts -->
     <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
     <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+     <!-- Open Graph card -->
+    <meta property="og:title" content="Efficient Eats" />
+    <meta property="og:image" content="http://example.com/image.jpg" />
+    <meta property="og:description" content="Description Here" />
+    <!-- Twitter card-->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Page Title">
+    <meta name="twitter:description" content="Page description">
+    <meta name="twitter:image" content="http://www.example.com/image.jpg">
 </head>
 <body>
     {% include 'main/includes/navbar.html' %}
