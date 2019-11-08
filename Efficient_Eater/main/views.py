@@ -1,8 +1,9 @@
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
+from .forms import ContactForm
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
 from .models import Restaurant, Item
-from .forms import *
-import jsonpickle
+
 
 # Create your views here.
 def homepage(request):
@@ -178,8 +179,6 @@ def lookup(request, restaurant_slug="", item_slug=""):
         items = Item.objects.filter(restaurant__slug__iexact=restaurant_slug)
         if item_slug != "" and myItem[0] is None:
             myItem = Item.objects.filter(restaurant__slug__iexact=restaurant_slug).filter(slug__iexact=item_slug)
-
-
     order = calculator_order(myItem, [1], len(myItem), chosen_restaurant)
     output = calculate_nutrition(order)
     context = {
@@ -193,14 +192,31 @@ def lookup(request, restaurant_slug="", item_slug=""):
     return render(request, template_name, context)
 
 def methodology(request):
-    return render(request = request,
-                  template_name="main/methodology.html",
-                  context={"restaurants":Restaurant.objects.all(),
-                           "items": Item.objects.all()})
+    template_name = "main/methodology.html"
+    context = {}
 
-def contact(request):
-    return render(request = request,
-                  template_name="main/contact.html",
-                  context={"restaurants":Restaurant.objects.all(),
-                           "items": Item.objects.all()})
+    return render(request, template_name, context)
+
+def contact(request, success=""):
+    submitted = False
+    template_name = "main/contact.html"
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, ['markbekker1998@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect("success/")
+    if success != "":
+        submitted = True
+
+    context = {"form": form,
+               "submitted": submitted}
+    return render(request, template_name, context)
 

@@ -1,16 +1,6 @@
 from django import forms
-from .models import Restaurant, Item
 
-class RestaurantSelectForm(forms.ModelForm):
-    class Meta:
-        model = Restaurant
-        fields = [
-            'name'
-        ]
-
-class ItemSelectForm(forms.ModelForm):
-    class Meta:
-        model = Item
-        fields = [
-            'name'
-        ]
+class ContactForm(forms.Form):
+    email = forms.EmailField(required=True)
+    subject = forms.CharField(required=True)
+    message = forms.CharField(widget=forms.Textarea, required=True)

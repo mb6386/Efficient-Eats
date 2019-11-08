@@ -44,6 +44,9 @@ urlpatterns = [
         path('', views.lookup, name="lookup")
     ])),
     path('methodology/', views.methodology, name="methodology"),
-    path('contact/', views.contact, name="contact"),
+    path('contact/', include([
+        path('', views.contact, name="contact"),
+        path('<slug:success>/', views.contact, name="contact_success")
+    ])),
 ]
 urlpatterns += staticfiles_urlpatterns()
