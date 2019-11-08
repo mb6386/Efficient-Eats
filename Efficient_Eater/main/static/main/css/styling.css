@@ -15,7 +15,7 @@ navbar {
 .nav-link h6{
   font-size: 1.2rem !important;
   font-weight: bold;
-  color: gray;
+  color: rgb(150,150,150);
 }
 .nav-link:hover h6{
     color: rgba(0, 0, 255, 0.5);
