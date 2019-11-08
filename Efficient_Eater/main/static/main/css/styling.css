@@ -1,5 +1,259 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', san-serif;
+  color: #222;
+}
+navbar {
+  padding: .7rem;
+}
+.navbar-nav li {
+  padding-right: 18px;
+}
+.nav-link h6{
+  font-size: 1.2rem !important;
+  font-weight: bold;
+  color: gray;
+}
+.nav-link:hover h6{
+    color: rgba(0, 0, 255, 0.5);
+}
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.carousel-caption h1 {
+  font-size: 500%;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 15px #000;
+}
+.carousel-caption h3 {
+  font-size: 200%;
+  font-weight: 500%;
+  text-shadow: 1px 1px 10px #000;
+  padding-bottom: 1rem;
+}
+.btn-primary {
+  background-color: #6648b1;
+  border: 1px solid #563d7c;
+}
+.btn-primary:hover {
+  background-color: #6648b1;
+  border: 1px solid #563d7c;
+}
+.jumbotron {
+  padding: 1rem;
+  border-radius: 0;
+}
+.padding {
+  padding-bottom: 2rem;
+}
+.welcome {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+.welcome hr {
+  border-top: 2px solid #b4b4b4;
+  width: 95%;
+  margin-top: .3rem;
+  margin-bottom: 1rem;
+}
+
+footer {
+  background-color: #3f3f3f;
+  color: #d5d5d5;
+  padding-top: 2rem;
+}
+hr.light {
+  border-top: 1px solid #d5d5d5;
+  width: 65%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+footer a {
+  color: #d5d5d5;
+}
+hr.light-100 {
+  border-top: 1px solid #d5d5d5;
+  width: 100%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+  .social a {
+    font-size: 4em;
+    padding: 2rem;
+  }
+  }
+@media (max-width: 768px) {
+.carousel-caption {
+  top: 45%;
+}
+.carousel-caption h1 {
+  font-size: 350%;
+}
+.carousel-caption h3 {
+  font-size: 140%;
+  font-weight: 400%;
+  padding-bottom: 0.2rem;
+}
+.carousel-caption .btn {
+  font-size: 95%;
+  padding: 8px 14px;
+}
+.display-4 {
+  font-size: 200%;
+}
+}
+@media (max-width: 576px) {
+    .social a {
+    font-size: 2.5em;
+    padding: 1.2rem;
+  }
+.carousel-caption {
+  top: 40%;
+}
+.carousel-caption h1 {
+  font-size: 250%;
+}
+.carousel-caption h3 {
+  font-size: 110%;
+}
+.carousel-caption .btn {
+  font-size: 90%;
+  padding: 4px 8px;
+}
+.carousel-indicators {
+  display: none;
+}
+.display-4 {
+  font-size: 160%;
+}
+.social a {
+  font-size: 2em;
+  padding: 0.7em;
+}
+}
 
 
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#fixed {
+  background-image: url('img/mac.png');
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+
+/* Tables */
+.nutrition-table-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.table .item-numbers { /* For Calculator and Lookup results table */
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.table .table-no-grid {
+    border: none;
+}
+.table .filter-label {
+    padding-right: 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.exclude-drinks-label {
+    display: block;
+    padding-left: 15px;
+    text-indent: 15px;
+}
+
+.exclude-drinks-checkbox {
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    *overflow: hidden;
+}
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: rgba(0, 0, 255, 0.1);
+}
+
+.table th {
+  background-color: rgba(0, 0, 255, 0.2);
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+.table td {
+    font-size: 1.0rem;
+    padding: 0.5 rem;
+}
+
+/* thumbnails */
 .calculator-restaurant-thumbnail {
     height: 125px;
     width: auto;
@@ -9,6 +263,8 @@
     height: 40px;
     width: auto;
 }
+
+/* piechart */
 #piechart {
   width: 50%;
   height: 50%;
@@ -114,14 +370,6 @@ p {
 .thin-end {
   border-bottom: 1px solid black;
 }
-
-/* Autofill search bar */
-
-.autocomplete {
-  /*the container must be positioned relative:*/
-  position: relative;
-}
-
 input {
   border: 1px solid transparent;
   background-color: #f1f1f1;
@@ -136,29 +384,102 @@ input[type=submit] {
   background-color: DodgerBlue;
   color: #fff;
 }
-.autocomplete-items {
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+  .social a {
+    font-size: 4em;
+    padding: 2rem;
+  }
+  }
+@media (max-width: 768px) {
+.carousel-caption {
+  top: 45%;
+}
+.carousel-caption h1 {
+  font-size: 350%;
+}
+.carousel-caption h3 {
+  font-size: 140%;
+  font-weight: 400%;
+  padding-bottom: 0.2rem;
+}
+.carousel-caption .btn {
+  font-size: 95%;
+  padding: 8px 14px;
+}
+.display-4 {
+  font-size: 200%;
+}
+}
+@media (max-width: 576px) {
+    .social a {
+    font-size: 2.5em;
+    padding: 1.2rem;
+  }
+.carousel-caption {
+  top: 40%;
+}
+.carousel-caption h1 {
+  font-size: 250%;
+}
+.carousel-caption h3 {
+  font-size: 110%;
+}
+.carousel-caption .btn {
+  font-size: 90%;
+  padding: 4px 8px;
+}
+.carousel-indicators {
+  display: none;
+}
+.display-4 {
+  font-size: 160%;
+}
+.social a {
+  font-size: 2em;
+  padding: 0.7em;
+}
+}
+
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
   position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
+  top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  height: 100%;
 }
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #fff;
-  border-bottom: 1px solid #d4d4d4;
+#fixed {
+  background-image: url('img/mac.png');
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
 }
-.autocomplete-items div:hover {
-  /*when hovering an item:*/
-  background-color: #e9e9e9;
-}
-.autocomplete-active {
-  /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important;
-  color: #ffffff;
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
 }

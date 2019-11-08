@@ -2,111 +2,106 @@
 
 {% load percentify %}
 {% load remove_trailing_zero %}
-<h5>&nbsp&nbsp Select a Restaurant</h5>
-<div class="form-group col-md-4">
-  <select id="inputState" name="restaurantName" class="form-control" onchange="location = this.value;">
-    {% if chosen_restaurant == "All" %}
-        <option value ="/nutrition/all/" selected>All Restaurants</option>
-         {% for restaurant in restaurants %}
-            <option value="/nutrition/{{ restaurant.slug }}/">{{ restaurant.name }}</option>
-         {% endfor %}
-    {% else %}
-        <option value="/nutrition/{{ chosen_restaurant.slug }}/" selected>{{ chosen_restaurant.name }}</option>
-        <option value="/nutrition/all/">All Restaurants</option>
-        {% for restaurant in restaurants %}
-            <option value="/nutrition/{{ restaurant.slug }}/">{{ restaurant.name }}</option>
-        {% endfor %}
-    {% endif %}
-  </select>
-</div>
-
- <div class="form-row">
-    <div class="col-sm-2">Exclude Drinks</div>
-    <div class="col-sm-10">
-      <div class="form-check">
-          {% if drinks == True %}
-              {% if chosen_restaurant == "All" %}
-                 <input value = "/nutrition/all/no-drinks/" class="form-check-input" type="checkbox" id="gridCheck1"  onchange="location = this.value;">
-              {% else %}
-                <input value = "/nutrition/{{ chosen_restaurant.slug }}/no-drinks/" class="form-check-input" type="checkbox" id="gridCheck1"  onchange="location = this.value;">
-              {% endif %}
-          {% else %}
-              {% if chosen_restaurant == "All" %}
-                 <input value = "/nutrition/all/" class="form-check-input" type="checkbox" id="gridCheck1"  onchange="location = this.value;" checked>
-              {% else %}
-                <input value = "/nutrition/{{ chosen_restaurant.slug }}/" class="form-check-input" type="checkbox" id="gridCheck1"  onchange="location = this.value;"checked>
-              {% endif %}
-          {% endif %}
-      </div>
+<main role="main" class="container">
+    <h2>Nutrition Table</h2><br>
+    <h5>&nbsp&nbsp Select a Restaurant</h5>
+    <div class="form-group col-md-4">
+      <select id="inputState" name="restaurantName" class="form-control" onchange="location = this.value;">
+        {% if chosen_restaurant == "All" %}
+            <option value ="/nutrition/all/" selected>All Restaurants</option>
+             {% for restaurant in restaurants %}
+                <option value="/nutrition/{{ restaurant.slug }}/">{{ restaurant.name }}</option>
+             {% endfor %}
+        {% else %}
+            <option value="/nutrition/{{ chosen_restaurant.slug }}/" selected>{{ chosen_restaurant.name }}</option>
+            <option value="/nutrition/all/">All Restaurants</option>
+            {% for restaurant in restaurants %}
+                <option value="/nutrition/{{ restaurant.slug }}/">{{ restaurant.name }}</option>
+            {% endfor %}
+        {% endif %}
+      </select>
     </div>
-  </div>
-<div class="container-fluid">
-    <div class="table_wrapper">
-        <div class="col-xs-12">
-        <table border="0" cellspacing="5" cellpadding="3">
-            <tbody>
-            <tr>
-                <td><b>Calories: &nbsp</b></td>
-                <td>Minimum:</td>
-                <td><input type="text" id="calorie-min" name="calorie-min"></td>
-                <td>Maximum:</td>
-                <td><input type="text" id="calorie-max" name="calorie-max"></td>
-            </tr>
-            <tr>
-                <td><b>Carbs: &nbsp</b></td>
-                <td>Minimum:</td>
-                <td><input type="text" id="carbs-min" name="carbs-min"></td>
-                <td>Maximum:</td>
-                <td><input type="text" id="carbs-max" name="carbs-max"></td>
-            </tr>
-            <tr>
-                <td><b>Fats: &nbsp</b></td>
-                <td>Minimum:</td>
-                <td><input type="text" id="fat-min" name="fat-min"></td>
-                <td>Maximum:</td>
-                <td><input type="text" id="fat-max" name="fat-max"></td>
-            </tr>
-            <tr>
-                <td><b>Protein: &nbsp</b></td>
-                <td>Minimum:</td>
-                <td><input type="text" id="protein-min" name="protein-min"></td>
-                <td>Maximum:</td>
-                <td><input type="text" id="protein-max" name="protein-max"></td>
-            </tr>
-            </tbody>
-         </table>
-            <table id="protein_table" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Restaurant</th>
-                        <th>Item</th>
-                        <th>Calories</th>
-                        <th>Carbs(g)</th>
-                        <th>Fat(g)</th>
-                        <th>Protein(g)</th>
-                        <th>Efficiency</th>
-                    </tr>
-                </thead>
+          <div class="form-check">
+
+              {% if drinks == True %}
+                  {% if chosen_restaurant == "All" %}
+                    <label class="exclude-drinks-label"><input value = "/nutrition/all/no-drinks/" class="exclude-drinks-checkbox form-check-input" type="checkbox" id="gridCheck1"  onchange="location = this.value;">Exclude Drinks</label>
+                  {% else %}
+                    <label class="exclude-drinks-label"><input value = "/nutrition/{{ chosen_restaurant.slug }}/no-drinks/" class="exclude-drinks-checkbox form-check-input" type="checkbox" id="gridCheck1"  onchange="location = this.value;">Exclude Drinks</label>
+                  {% endif %}
+              {% else %}
+                  {% if chosen_restaurant == "All" %}
+                     <label class="exclude-drinks-label"><input value = "/nutrition/all/" class="exclude-drinks-checkbox form-check-input" type="checkbox" id="gridCheck1"  onchange="location = this.value;" checked>Exclude Drinks</label>
+                  {% else %}
+                     <label class="exclude-drinks-label"><input value = "/nutrition/{{ chosen_restaurant.slug }}/" class="exclude-drinks-checkbox form-check-input" type="checkbox" id="gridCheck1"  onchange="location = this.value;" checked>Exclude Drinks</label>
+                  {% endif %}
+              {% endif %}
+          </div>
+    <div class="container-fluid">
+        <div class="table_wrapper">
+            <table class ="table table-no-grid">
                 <tbody>
-                    {% for item in items %}
-                            <tr>
-                                {% filter capfirst %}
-                                <td>{{ item.restaurant }}</td>
-                                <td><a href="/lookup/{{ item.restaurant.slug }}/{{ item.slug }}/" target="_blank">{{ item.name }}</a></td>
-                                {% endfilter %}
-                                <td>{{ item.calories }}</td>
-                                <td>{{ item.carbs|remove_trailing_zero }}</td>
-                                <td>{{ item.total_fat|remove_trailing_zero }}</td>
-                                <td>{{ item.protein|remove_trailing_zero }}</td>
-                                <td>{{ item.protein_efficiency|percentify }}%</td>
-                            </tr>
-                    {% endfor %}
+                <tr>
+                    <td class="filter-label">Calories:</td>
+                    <td>Minimum:</td>
+                    <td><input type="text" id="calorie-min" name="calorie-min"></td>
+                    <td>Maximum:</td>
+                    <td><input type="text" id="calorie-max" name="calorie-max"></td>
+                </tr>
+                <tr>
+                    <td class="filter-label">Carbs:</td>
+                    <td>Minimum:</td>
+                    <td><input type="text" id="carbs-min" name="carbs-min"></td>
+                    <td>Maximum:</td>
+                    <td><input type="text" id="carbs-max" name="carbs-max"></td>
+                </tr>
+                <tr>
+                    <td class="filter-label">Fats:</td>
+                    <td>Minimum:</td>
+                    <td><input type="text" id="fat-min" name="fat-min"></td>
+                    <td>Maximum:</td>
+                    <td><input type="text" id="fat-max" name="fat-max"></td>
+                </tr>
+                <tr>
+                    <td class="filter-label">Protein:</td>
+                    <td>Minimum:</td>
+                    <td><input type="text" id="protein-min" name="protein-min"></td>
+                    <td>Maximum:</td>
+                    <td><input type="text" id="protein-max" name="protein-max"></td>
+                </tr>
                 </tbody>
-            </table>
+             </table>
+                <table id="protein_table" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Restaurant</th>
+                            <th>Item</th>
+                            <th>Calories</th>
+                            <th>Carbs(g)</th>
+                            <th>Fat(g)</th>
+                            <th>Protein(g)</th>
+                            <th>Efficiency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                                <tr>
+                                    {% filter capfirst %}
+                                    <td>{{ item.restaurant }}</td>
+                                    <td><a href="/lookup/{{ item.restaurant.slug }}/{{ item.slug }}/" target="_blank">{{ item.name }}</a></td>
+                                    {% endfilter %}
+                                    <td>{{ item.calories }}</td>
+                                    <td>{{ item.carbs|remove_trailing_zero }}</td>
+                                    <td>{{ item.total_fat|remove_trailing_zero }}</td>
+                                    <td>{{ item.protein|remove_trailing_zero }}</td>
+                                    <td>{{ item.protein_efficiency|percentify }}%</td>
+                                </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-</div>
-
+</main>
 <!-- the second way to do it to integrate our buttons for export-->
 
 <script>

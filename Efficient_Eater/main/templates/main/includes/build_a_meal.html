@@ -111,23 +111,23 @@
     <div class="Results">
     {% include 'main/includes/nutrition_facts.html' %}
 
-    <table id="orderTable" class="table order">
+    <table id="orderTable" class="table table-striped">
         <thead>
             <tr>
-                <td><b>#</b></td>
-                <td></td>
-                <td><b>Item</b></td>
-                <td><b>Quantity</b></td>
-                <td><b>Calories</b></td>
-                <td><b>Carbs</b></td>
-                <td><b>Fat</b></td>
-                <td><b>Protein</b></td>
+                <th><b>#</b></th>
+                <th></th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Calories</th>
+                <th>Carbs (g)</th>
+                <th>Fat (g)</th>
+                <th>Protein (g)</th>
             </tr>
         </thead>
         <tbody>
             {% for itemList in order %}
             <tr>
-                <td><b>{{ itemList.0 }}.</b></td>
+                <td class="item-numbers">{{ itemList.0 }}.</td>
                 <td><img src="/static/main/{{ itemList.8.url }}" class="order-restaurant-thumbnail"></td>
                 <td><a href="/lookup/{{ itemList.12|slugify }}/{{ itemList.1|slugify }}/" target="_blank">{{ itemList.1 }}</a></td>
                 <td>{{ itemList.2 }}</td>

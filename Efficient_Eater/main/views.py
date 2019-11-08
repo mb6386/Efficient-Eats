@@ -6,10 +6,9 @@ import jsonpickle
 
 # Create your views here.
 def homepage(request):
-    return render(request = request,
-                  template_name="main/home.html",
-                  context={"restaurants":Restaurant.objects.all(),
-                           "items": Item.objects.all()})
+    template_name="main/home.html",
+    context={}
+    return render(request=request, template_name=template_name, context=context)
 
 def nutrition(request, restaurant_slug="", drinks=""):
     template_name = "main/nutrition.html"
