@@ -1,74 +1,74 @@
 {% extends "main/header.html" %}
 {% load length %}
 {% block content %}
-    <main role="main" class="container">
-    <h2>Look up an Item</h2><br>
-    <h5>&nbsp&nbsp Select a Restaurant</h5>
-    <form method="GET">
-      <div class="form-group col-md-4">
-          <select id="inputState" name="restaurantName" class="form-control" onchange="location = this.value;">
-            {% if chosen_restaurant == "All" %}
-                <option value ="/lookup/" selected>All Restaurants</option>
-                 {% for restaurant in restaurants %}
-                    <option value="/lookup/{{ restaurant.slug }}/">{{ restaurant.name }}</option>
-                 {% endfor %}
-            {% else %}
-                <option value="/lookup/{{ chosen_restaurant.slug }}/" selected>{{ chosen_restaurant.name }}</option>
-                <option value="/lookup/">All Restaurants</option>
-                {% for restaurant in restaurants %}
-                    <option value="/lookup/{{ restaurant.slug }}/">{{ restaurant.name }}</option>
-                {% endfor %}
-            {% endif %}
-          </select>
-          {% if chosen_restaurant != "All" %}
-            <img src = "/static/main/{{chosen_restaurant.logo.url}}" class="calculator-restaurant-thumbnail">
-          {% endif %}
-      </div>
-      <div class="container">
-        <datalist id="itemList">
-            {% if chosen_restaurant == "All" %}
-                {% for item in items %}
-                    <option value="{{ item }} | {{ item.restaurant }}">{{ item }} | {{ item.restaurant }}</option>
-                {% endfor %}
-            {% else %}
-                {% for item in items %}
-                    <option value="{{ item }}">{{ item }}</option>
-                {% endfor %}
-            {% endif %}
-        </datalist>
-          {% if order|length == 0 %}
-            <tr>
-                <td class="col-sm-3">
-                 <div class="autocomplete">
-                    <input type="search" id="myInput" class="myInput form-control" placeholder="Enter Item" name="myInput" autocomplete="off" list="itemList">
-                 </div>
-                </td>
-            </tr>
-            {% else %}
-                {% for itemList in order %}
-                    <tr>
-                        <td class="col-sm-3">
-                         <div class="autocomplete">
-                             {% if chosen_restaurant != "All" %}
-                                <input type="search" id="myInput" class="myInput form-control" value="{{ itemList.1 }}" name="myInput" autocomplete="off" list="itemList">
-                             {% else %}
-                                <input type="search" id="myInput" class="myInput form-control" value="{{ itemList.1 }} | {{ itemList.12 }}" name="myInput" autocomplete="off" list="itemList">
-                             {% endif %}
-                         </div>
-                        </td>
-                    </tr>
-                {% endfor %}
-            {% endif %}
-          <div class="form-row">
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-         </div>
-       </form>
-      </div>
+<main role="main" class="container lookup-container">
+<h2>Look up an Item</h2><br>
+<h5>&nbsp&nbsp Select a Restaurant</h5>
+<form method="GET">
+  <div class="form-group col-md-4">
+      <select id="inputState" name="restaurantName" class="form-control" onchange="location = this.value;">
+        {% if chosen_restaurant == "All" %}
+            <option value ="/lookup/" selected>All Restaurants</option>
+             {% for restaurant in restaurants %}
+                <option value="/lookup/{{ restaurant.slug }}/">{{ restaurant.name }}</option>
+             {% endfor %}
+        {% else %}
+            <option value="/lookup/{{ chosen_restaurant.slug }}/" selected>{{ chosen_restaurant.name }}</option>
+            <option value="/lookup/">All Restaurants</option>
+            {% for restaurant in restaurants %}
+                <option value="/lookup/{{ restaurant.slug }}/">{{ restaurant.name }}</option>
+            {% endfor %}
+        {% endif %}
+      </select>
+      {% if chosen_restaurant != "All" %}
+        <img src = "/static/main/{{chosen_restaurant.logo.url}}" class="calculator-restaurant-thumbnail">
+      {% endif %}
+  </div>
+  <div class="container">
+    <datalist id="itemList">
+        {% if chosen_restaurant == "All" %}
+            {% for item in items %}
+                <option value="{{ item }} | {{ item.restaurant }}">{{ item }} | {{ item.restaurant }}</option>
+            {% endfor %}
+        {% else %}
+            {% for item in items %}
+                <option value="{{ item }}">{{ item }}</option>
+            {% endfor %}
+        {% endif %}
+    </datalist>
+      {% if order|length == 0 %}
+        <tr>
+            <td class="col-sm-3">
+             <div class="autocomplete">
+                <input type="search" id="myInput" class="myInput form-control" placeholder="Enter Item" name="myInput" autocomplete="off" list="itemList">
+             </div>
+            </td>
+        </tr>
+        {% else %}
+            {% for itemList in order %}
+                <tr>
+                    <td class="col-sm-3">
+                     <div class="autocomplete">
+                         {% if chosen_restaurant != "All" %}
+                            <input type="search" id="myInput" class="myInput form-control" value="{{ itemList.1 }}" name="myInput" autocomplete="off" list="itemList">
+                         {% else %}
+                            <input type="search" id="myInput" class="myInput form-control" value="{{ itemList.1 }} | {{ itemList.12 }}" name="myInput" autocomplete="off" list="itemList">
+                         {% endif %}
+                     </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+      <div class="form-row">
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+     </div>
+   </form>
+  </div>
 
-    {% if order|length == 1 %}
-        <div class="Results">
-            {% include 'main/includes/nutrition_facts.html' %}
-        </div>
-    {% endif %}
-    </main>
+{% if order|length == 1 %}
+    <div class="Results">
+        {% include 'main/includes/nutrition_facts.html' %}
+    </div>
+{% endif %}
+</main>
 {% endblock %}

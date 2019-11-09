@@ -98,19 +98,19 @@ def calculator_order(searched_items, searched_items_quantity, length, chosen_res
                 attribute_inputName="inputName"+str(valid_counter)
                 attribute_itemName="itemName"+str(valid_counter)
                 attribute_itemQuantity="itemQuantity"+str(valid_counter)
-                order.append([valid_counter, #Number of valid item in order #0
-                              f"{item}", #Name of item #1
-                              int(itemQuantity), #Quantity of item #2
-                              item.id, #ID of item #3
-                              item.calories*itemQuantity, #Calories of item in the quantity ordered #4
-                              item.carbs*itemQuantity, #Carbs of item in the quantity ordered #5
-                              item.total_fat*itemQuantity, #Fats of item in the quantity ordered #6
-                              item.protein*itemQuantity, #Protein of item in the quantity ordered #7
-                              restaurant.logo, #Logo of restaurant of the food item #8
-                              attribute_inputName, #attribute id of item #9
-                              attribute_itemName, #attribute name of item #10
-                              attribute_itemQuantity, #attribute name for select of item #11
-                              restaurant.name, #name of restaurant of item #12
+                order.append([valid_counter,  #Number of valid item in order #0
+                              f"{item}",  #Name of item #1
+                              int(itemQuantity),  #Quantity of item #2
+                              item.id,  #ID of item #3
+                              item.calories*itemQuantity,  #Calories of item in the quantity ordered #4
+                              item.carbs*itemQuantity,  #Carbs of item in the quantity ordered #5
+                              item.total_fat*itemQuantity,  #Fats of item in the quantity ordered #6
+                              item.protein*itemQuantity,  #Protein of item in the quantity ordered #7
+                              restaurant.logo,  #Logo of restaurant of the food item #8
+                              attribute_inputName,  #attribute id of item #9
+                              attribute_itemName,  #attribute name of item #10
+                              attribute_itemQuantity,  #attribute name for select of item #11
+                              restaurant.name,  #name of restaurant of item #12
                               ])
                 valid_counter+=1
     return order
@@ -165,6 +165,9 @@ def calculate_nutrition(order):
         "sodium_daily_value": int((sodium/2400)*100),
         "carbs_daily_value": int((carbs/300)*100),
         "fiber_daily_value": int((fiber/25)*100),
+        "carbs_efficiency": int(((carbs*4)/calories)*100) if calories > 0 else None,
+        "fat_efficiency": int(((total_fat*9)/calories)*100) if calories > 0 else None,
+        "protein_efficiency": int(((protein*4)/calories)*100) if calories > 0 else None,
     }
     return results
 

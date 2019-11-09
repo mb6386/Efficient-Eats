@@ -5,21 +5,43 @@
 {% load blurbify %}
 {% load redirect_drinks %}
 {% block content %}
+<main role="main" class="container nutrition-container">
     {% if chosen_restaurant != "All" %}
         <div class="container-fluid padding">
+            <h2>{{chosen_restaurant.name}}</h2>
             <div class="row padding">
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="LogoAndName">
-                        <img src="{% static chosen_restaurant.logo.url|add_main %}" height="275px" width="auto">
-                        <h2>{{chosen_restaurant.name}}</h2>
+                <div class="col-md-6 col-lg-6">
+                    <div class="Logo">
+                        <img class="nutrition-restaurant-thumbnail" src="{% static chosen_restaurant.logo.url|add_main %}">
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <p>{{ chosen_restaurant.description|blurbify }}</p>
+                <div class="col-md-6 col-lg-6">
+                    <div id="blurb-description">
+                        <p>{{ chosen_restaurant.description|blurbify }}</p>
+                    </div>
+                    <div id="full-description">
+                        <p>{{ chosen_restaurant.description }}</p>
+                    </div>
+                    <button onclick="revealDescription()" type="button" class="btn btn-success">Read More</button>
                 </div>
             </div>
         </div>
     {% endif %}
     {% include 'main/includes/protein_table.html' %}
-{% endblock %}
+</main>
 
+<script>
+function revealDescription() {
+  var long = document.getElementById("full-description");
+  var blurb = document.getElementById("blurb-description");
+  if (long.style.display === "none") {
+    long.style.display = "block";
+    blurb.style.display = "none";
+  }
+  else {
+    long.style.display = "none";
+    blurb.style.display = "block";
+  }
+}
+</script>
+{% endblock %}

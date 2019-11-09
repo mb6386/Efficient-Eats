@@ -2,7 +2,7 @@
 
 {% load percentify %}
 {% load remove_trailing_zero %}
-<main role="main" class="container">
+<div class="nutritional-table">
     <h2>Nutrition Table</h2><br>
     <h5>&nbsp&nbsp Select a Restaurant</h5>
     <div class="form-group col-md-4">
@@ -22,18 +22,17 @@
       </select>
     </div>
           <div class="form-check">
-
               {% if drinks == True %}
                   {% if chosen_restaurant == "All" %}
-                    <label class="exclude-drinks-label"><input value = "/nutrition/all/no-drinks/" class="exclude-drinks-checkbox form-check-input" type="checkbox" id="gridCheck1"  onchange="location = this.value;">Exclude Drinks</label>
+                    <label class="exclude-drinks-label" for="gridCheck1"><input value = "/nutrition/all/no-drinks/" class="exclude-drinks-checkbox form-check-input pull-right" type="checkbox" id="gridCheck1"  onchange="location = this.value;">Exclude Drinks</label>
                   {% else %}
-                    <label class="exclude-drinks-label"><input value = "/nutrition/{{ chosen_restaurant.slug }}/no-drinks/" class="exclude-drinks-checkbox form-check-input" type="checkbox" id="gridCheck1"  onchange="location = this.value;">Exclude Drinks</label>
+                    <label class="exclude-drinks-label" for="gridCheck1"><input value = "/nutrition/{{ chosen_restaurant.slug }}/no-drinks/" class="exclude-drinks-checkbox form-check-input pull-right" type="checkbox" id="gridCheck1"  onchange="location = this.value;">Exclude Drinks</label>
                   {% endif %}
               {% else %}
                   {% if chosen_restaurant == "All" %}
-                     <label class="exclude-drinks-label"><input value = "/nutrition/all/" class="exclude-drinks-checkbox form-check-input" type="checkbox" id="gridCheck1"  onchange="location = this.value;" checked>Exclude Drinks</label>
+                     <label class="exclude-drinks-label" for="gridCheck1"><input value = "/nutrition/all/" class="exclude-drinks-checkbox form-check-input pull-right" type="checkbox" id="gridCheck1"  onchange="location = this.value;" checked>Exclude Drinks</label>
                   {% else %}
-                     <label class="exclude-drinks-label"><input value = "/nutrition/{{ chosen_restaurant.slug }}/" class="exclude-drinks-checkbox form-check-input" type="checkbox" id="gridCheck1"  onchange="location = this.value;" checked>Exclude Drinks</label>
+                     <label class="exclude-drinks-label" for="gridCheck1"><input value = "/nutrition/{{ chosen_restaurant.slug }}/" class="exclude-drinks-checkbox form-check-input pull-right" type="checkbox" id="gridCheck1"  onchange="location = this.value;" checked>Exclude Drinks</label>
                   {% endif %}
               {% endif %}
           </div>
@@ -101,8 +100,7 @@
                 </table>
             </div>
         </div>
-</main>
-<!-- the second way to do it to integrate our buttons for export-->
+</div>
 
 <script>
 /* Custom filtering function which will search data in column four between two values */

@@ -1,7 +1,7 @@
 {% load increment %}
 {% load common %}
 {% load static %}
-<main role="main" class="container">
+<div class="build-a-meal">
     <h2>Build a Meal</h2><br>
     <h5>&nbsp&nbsp Select a Restaurant</h5>
     <form method="GET">
@@ -141,7 +141,7 @@
     </table>
     </div>
     {% endif %}
-</main>
+</div>
 <script>
 /* Dynamically add rows */
 var counter = {{ order|length }};
