@@ -223,6 +223,9 @@ Extra (xl) large devices (large desktops, 1200px and up)
 }
 
 /* Containers */
+.home-container {
+    margin-top: 40px;
+}
 .nutrition-table-container {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -246,7 +249,9 @@ Extra (xl) large devices (large desktops, 1200px and up)
 .contact-container {
     margin-top: 40px;
 }
-
+.methodology-container {
+    margin-top: 40px;
+}
 /* Tables */
 .table .item-numbers { /* For Calculator and Lookup results table */
     font-weight: bold;
@@ -279,7 +284,7 @@ Extra (xl) large devices (large desktops, 1200px and up)
     float: right;
 }
 .efficiency-table {
-   margin-left: 36%;
+   margin-left: 35%;
    rules = none;
 }
 .efficiency-table tr {
