@@ -1,19 +1,15 @@
 <div class="container-fluid padding">
-    <div class="row">
-        <div class="col-xs-12">
+    <div class="row padding">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
             {% include 'main/includes/nutrition_label.html' %}
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6"">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
             {% include 'main/includes/pie_chart.html' %}
         </div>
     </div>
-    <div class="table table-borderless efficiency-table">
-    <table>
-        <tbody>
-            <tr><td id="carb-efficiency-label">Carb Efficiency: </td><td id="carb-efficiency-output">{{ output.carbs_efficiency }}%</td></tr>
-            <tr><td id="fat-efficiency-label">Fat Efficiency: </td><td id="fat-efficiency-output">{{ output.fat_efficiency }}%</td></tr>
-            <tr><td id="protein-efficiency-label">Protein Efficiency: </td><td id="protein-efficiency-output">{{ output.protein_efficiency }}%</td></tr>
-        </tbody>
-    </table>
-</div>
+<!--
+    <div>>
+        {% include 'main/includes/macro_breakdown.html' %}
+    </div>
+-->
 </div>

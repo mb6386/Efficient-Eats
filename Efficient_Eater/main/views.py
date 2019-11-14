@@ -147,27 +147,29 @@ def calculate_nutrition(order):
             floz = None
 
     results = {
-        "calories": int(calories),
-        "total_fat": int(total_fat),
-        "sat_fat": int(sat_fat),
-        "trans_fat": int(trans_fat),
-        "cholesterol": int(cholesterol),
-        "sodium": int(sodium),
-        "carbs": int(carbs),
-        "fiber": int(fiber),
-        "sugar": int(sugar),
-        "protein": int(protein),
+        "calories": round(calories),
+        "total_fat": round(total_fat),
+        "sat_fat": round(sat_fat),
+        "trans_fat": round(trans_fat),
+        "cholesterol": round(cholesterol),
+        "sodium": round(sodium),
+        "carbs": round(carbs),
+        "fiber": round(fiber),
+        "sugar": round(sugar),
+        "protein": round(protein),
         "floz": floz,
-        "calories_from_fat": int(total_fat * 9),
-        "total_fat_daily_value": int((total_fat/65)*100),
-        "sat_fat_daily_value": int((sat_fat/20)*100),
-        "cholesterol_daily_value": int((cholesterol/300)*100),
-        "sodium_daily_value": int((sodium/2400)*100),
-        "carbs_daily_value": int((carbs/300)*100),
-        "fiber_daily_value": int((fiber/25)*100),
-        "carbs_efficiency": int(((carbs*4)/calories)*100) if calories > 0 else None,
-        "fat_efficiency": int(((total_fat*9)/calories)*100) if calories > 0 else None,
-        "protein_efficiency": int(((protein*4)/calories)*100) if calories > 0 else None,
+        "calories_from_fat": round(total_fat * 9),
+        "calories_from_protein": round(protein * 4),
+        "calories_from_carbs": round(carbs * 4),
+        "total_fat_daily_value": round((total_fat/65)*100),
+        "sat_fat_daily_value": round((sat_fat/20)*100),
+        "cholesterol_daily_value": round((cholesterol/300)*100),
+        "sodium_daily_value": round((sodium/2400)*100),
+        "carbs_daily_value": round((carbs/300)*100),
+        "fiber_daily_value": round((fiber/25)*100),
+        "carbs_efficiency": round((((carbs*4)/calories)*100),1) if calories > 0 else None,
+        "fat_efficiency": round((((total_fat*9)/calories)*100),1) if calories > 0 else None,
+        "protein_efficiency": round((((protein*4)/calories)*100),1) if calories > 0 else None,
     }
     return results
 
@@ -196,9 +198,8 @@ def lookup(request, restaurant_slug="", item_slug=""):
 
 def methodology(request):
     template_name = "main/methodology.html"
-    context = {}
 
-    return render(request, template_name, context)
+    return render(request, template_name)
 
 def contact(request, success=""):
     submitted = False

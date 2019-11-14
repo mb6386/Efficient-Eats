@@ -5,16 +5,16 @@ anychart.onDocumentReady(function() {
 
   // set the data
   var data = [
-      {x: "Carbs", value: {{ output.carbs }}, normal: {fill: "#00FFFF"} },
-      {x: "Fat", value: {{ output.total_fat }}, normal: {fill: "#00FF00"} },
-      {x: "Protein", value: {{ output.protein }}, normal: {fill: "#FF0000"} },
+      {x: "Carbs", value: {{ output.calories_from_carbs }}, normal: {fill: "#00FFFF"} },
+      {x: "Fat", value: {{ output.calories_from_fat }}, normal: {fill: "#00FF00"} },
+      {x: "Protein", value: {{ output.calories_from_protein }}, normal: {fill: "#FF0000"} },
   ];
 
   // create the chart
   var chart = anychart.pie();
 
   // set the chart title
-  chart.title("Macronutrient Breakdown");
+  chart.title("Calories from Macronutrients");
 
   // add the data
   chart.data(data);
@@ -27,6 +27,8 @@ anychart.onDocumentReady(function() {
   chart.legend().itemsLayout("horizontal");
   chart.normal().stroke("#669999", 3);
   chart.radius("48%")
+})
   chart.draw();
+
 });
 </script>
