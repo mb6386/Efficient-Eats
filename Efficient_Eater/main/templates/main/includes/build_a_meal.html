@@ -63,7 +63,7 @@
                     {% endfor %}
                     </select>
                 </td>
-                <td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>
+                <td><input type="button" class="ibtnDel btn btn-md btn-danger" value="Delete"></td>
             </tr>
             {% else %}
                 {% for itemList in order %}
@@ -89,7 +89,7 @@
                             {% endfor %}
                             </select>
                         </td>
-                        <td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>
+                        <td><input type="button" class="ibtnDel btn btn-md btn-danger" value="Delete"></td>
                     </tr>
                 {% endfor %}
             {% endif %}
@@ -97,14 +97,16 @@
         <tfoot>
             <tr>
                 <td colspan="5">
-                    <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Item" />
+                    <input type="button" class="btn btn-primary btn-lg btn-block" id="addrow" value="Add Item" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <button type="submit" class="btn btn-success btn-lg btn-block"> Submit</button>
                 </td>
             </tr>
         </tfoot>
     </table>
-    </div>
-    <div class="form-row">
-        <button type="submit" class="btn btn-primary mb-2">Submit</button>
     </div>
 </form>
     {% if order|length != 0 %}

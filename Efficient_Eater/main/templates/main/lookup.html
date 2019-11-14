@@ -36,6 +36,9 @@
             {% endfor %}
         {% endif %}
     </datalist>
+    <h5>&nbsp&nbsp Select an Item</h5>
+    <table id="lookupTable" class="table borderless order-list">
+     <tbody>
       {% if order|length == 0 %}
         <tr>
             <td class="col-sm-3">
@@ -59,12 +62,17 @@
                 </tr>
             {% endfor %}
         {% endif %}
-      <div class="form-row">
-        <button type="submit" class="btn btn-primary mb-2">Submit</button>
-     </div>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+                </td>
+            </tr>
+        </tfoot>
+      </table>
    </form>
   </div>
-
 {% if order|length == 1 %}
     <div class="Results">
         {% include 'main/includes/nutrition_facts.html' %}

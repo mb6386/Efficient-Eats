@@ -6,6 +6,16 @@ html, body {
   font-family: 'Poppins', san-serif;
   color: #222;
 }
+
+/* Images */
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
 /* Navbar */
 navbar {
   padding: .7rem;

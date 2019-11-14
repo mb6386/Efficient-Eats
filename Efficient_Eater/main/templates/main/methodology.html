@@ -1,23 +1,40 @@
 {% extends "main/header.html" %}
+{% load static %}
 {% block content %}
 <main role="main" class="container methodology-container">
     <h2>Methodology</h2>
-    <div class="col-md-12 col-lg-9 col-xl-6">
-        <p>Efficiency is a ratio of calories from protein (other another specified macro-nutrient)
-            over the total number of calories in the meal displayed as a percentage. For example if a meal contained
-            500 calories and 25 grams of protein the efficiency of the meal is calculated as such:
-            25 grams of protein  X 4 calories per gram (there are 4 calories in each gram of protein) = 100 calories from
-            protein. 100 calories from protein / 500 total calories = 0.2 or 20% efficiency.
-        </p>
-    <br>
-        <p>There are three primary macro-nutrients, carbohydrates (carbs), fat, and protein
-            that comprise the total caloric content of any particular item of food. Carbs and protein are both
-            4 calories per gram and fat is 9 calories per gram. The Efficiency ratio
-            referenced in the "Nutrition" tab on this site is protein as this is typically the macro-nutrient
-            most people tend to concern themselves with but efficiency ratios for all three macro-nutrients are displayed
-            in the pie chart in both the "Lookup" tab for every item and in the "Calculator"
-            tab for every user-inputted order.
-        </p>
+    <div class="row padding">
+        <div class="col-md-12 col-lg-9 col-xl-6">
+            <p>
+                Efficiency is a ratio of calories from protein (other another specified macro-nutrient)
+                over the total number of calories in the meal displayed as a percentage. For example if a meal contained
+                500 calories and 25 grams of protein the efficiency of the meal is calculated as such:
+                25 grams of protein  X 4 calories per gram (there are 4 calories in each gram of protein) = 100 calories from
+                protein. 100 calories from protein / 500 total calories = 0.2 or 20% efficiency.
+            </p>
+        <br>
+            <p>
+                There are three primary macro-nutrients, carbohydrates (carbs), fat, and protein
+                that comprise the total caloric content of any particular item of food. Carbs and protein are both
+                4 calories per gram and fat is 9 calories per gram. The Efficiency ratio
+                referenced in the "Nutrition" tab on this site is protein as this is typically the macro-nutrient
+                most people tend to concern themselves with but efficiency ratios for all three macro-nutrients are displayed
+                in the pie chart in both the "Lookup" tab for every item and in the "Calculator"
+                tab for every user-inputted order.
+            </p>
+        <br>
+            <p>
+                Protein is comprised of amino acids which are used to maintain and repair muscle tissue.
+                It is recommended to get between 0.65 grams - 1.0 gram of protein per pound of body weight a day if your goal
+                is to build muscle. Although they do not directly build muscle it is vital to get the proper amount of carbohydrates
+                and fat in your diet as well to maximize muscle growth and overall health. Refer to the following article for more
+                information: <a href="https://lifesum.com/health-education/how-to-count-macros-for-building-muscle-and-losing-fat/">Link</a>
+
+            </p>
+        </div>
+        <div class="col-md-12 col-lg-9 col-xl-6">
+            <img class="methodology-page-image center" id="pie-chart-example" src="{% static 'main/media/piechart-example.png' %}">
+        </div>
     </div>
 </main>
 {% endblock %}
