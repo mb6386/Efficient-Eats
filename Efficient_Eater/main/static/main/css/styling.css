@@ -242,6 +242,9 @@ Extra (xl) large devices (large desktops, 1200px and up)
 #full-description {
     display: none;
 }
+#blurb-description {
+    display: block;
+}
 
 /* Containers */
 .home-container {
@@ -369,7 +372,7 @@ Extra (xl) large devices (large desktops, 1200px and up)
     width: auto;
 }
 .nutrition-restaurant-thumbnail {
-    width: 500px;
+    width: 250px;
     height: auto;
 }
 

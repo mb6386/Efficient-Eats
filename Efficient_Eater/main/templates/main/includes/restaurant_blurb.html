@@ -1,0 +1,42 @@
+{% load static %}
+{% load length %}
+{% load add_main %}
+{% load blurbify %}
+{% load redirect_drinks %}
+{% if chosen_restaurant != "All" %}
+        <div class="container-fluid">
+            <h2>{{chosen_restaurant.name}}</h2>
+            <div class="row padding">
+                <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                    <div class="Logo">
+                        <img class="nutrition-restaurant-thumbnail" src="{% static chosen_restaurant.logo.url|add_main %}">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-9 col-xl-9">
+                    <div id="blurb-description">
+                        <p>{{ chosen_restaurant.description|blurbify }}</p>
+                    </div>
+                    <div id="full-description">
+                        <p>{{ chosen_restaurant.description }}</p>
+                    </div>
+                    <button id="Read-More-Button" onclick="revealDescription()" type="button" class="btn btn-success">Show More</button>
+                </div>
+            </div>
+        </div>
+{% endif %}
+<script>
+function revealDescription() {
+  var long = document.getElementById("full-description");
+  var blurb = document.getElementById("blurb-description");
+  if (long.style.display === "none") {
+    long.style.display = "block";
+    blurb.style.display = "none";
+    document.querySelector('#Read-More-Button').innerHTML = 'Show Less';
+  }
+  else {
+    long.style.display = "none";
+    blurb.style.display = "block";
+    document.querySelector('#Read-More-Button').innerHTML = 'Show More';
+  }
+}
+</script>

@@ -20,10 +20,8 @@
                 {% endfor %}
             {% endif %}
           </select>
-          {% if chosen_restaurant != "All" %}
-            <img src = "/static/main/{{chosen_restaurant.logo.url}}" class="calculator-restaurant-thumbnail">
-          {% endif %}
       </div>
+      {% include 'main/includes/restaurant_blurb.html' %}
       <div class="container">
           <br>
           <h5>Enter Your Order</h5>

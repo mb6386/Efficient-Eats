@@ -1,5 +1,4 @@
 <!-- needed for dataTales-->
-
 {% load percentify %}
 {% load remove_trailing_zero %}
 <div class="nutritional-table">
@@ -21,52 +20,53 @@
         {% endif %}
       </select>
     </div>
-          <div class="form-check">
-              {% if drinks == True %}
-                  {% if chosen_restaurant == "All" %}
-                    <label class="exclude-drinks-label" for="gridCheck1"><input value = "/nutrition/all/no-drinks/" class="exclude-drinks-checkbox form-check-input pull-right" type="checkbox" id="gridCheck1"  onchange="location = this.value;">Exclude Drinks</label>
-                  {% else %}
-                    <label class="exclude-drinks-label" for="gridCheck1"><input value = "/nutrition/{{ chosen_restaurant.slug }}/no-drinks/" class="exclude-drinks-checkbox form-check-input pull-right" type="checkbox" id="gridCheck1"  onchange="location = this.value;">Exclude Drinks</label>
-                  {% endif %}
+    {% include 'main/includes/restaurant_blurb.html' %}
+      <div class="form-check">
+          {% if drinks == True %}
+              {% if chosen_restaurant == "All" %}
+                <label class="exclude-drinks-label" for="gridCheck1"><input value = "/nutrition/all/no-drinks/" class="exclude-drinks-checkbox form-check-input pull-right" type="checkbox" id="gridCheck1"  onchange="location = this.value;">Exclude Drinks</label>
               {% else %}
-                  {% if chosen_restaurant == "All" %}
-                     <label class="exclude-drinks-label" for="gridCheck1"><input value = "/nutrition/all/" class="exclude-drinks-checkbox form-check-input pull-right" type="checkbox" id="gridCheck1"  onchange="location = this.value;" checked>Exclude Drinks</label>
-                  {% else %}
-                     <label class="exclude-drinks-label" for="gridCheck1"><input value = "/nutrition/{{ chosen_restaurant.slug }}/" class="exclude-drinks-checkbox form-check-input pull-right" type="checkbox" id="gridCheck1"  onchange="location = this.value;" checked>Exclude Drinks</label>
-                  {% endif %}
+                <label class="exclude-drinks-label" for="gridCheck1"><input value = "/nutrition/{{ chosen_restaurant.slug }}/no-drinks/" class="exclude-drinks-checkbox form-check-input pull-right" type="checkbox" id="gridCheck1"  onchange="location = this.value;">Exclude Drinks</label>
               {% endif %}
-          </div>
+          {% else %}
+              {% if chosen_restaurant == "All" %}
+                 <label class="exclude-drinks-label" for="gridCheck1"><input value = "/nutrition/all/" class="exclude-drinks-checkbox form-check-input pull-right" type="checkbox" id="gridCheck1"  onchange="location = this.value;" checked>Exclude Drinks</label>
+              {% else %}
+                 <label class="exclude-drinks-label" for="gridCheck1"><input value = "/nutrition/{{ chosen_restaurant.slug }}/" class="exclude-drinks-checkbox form-check-input pull-right" type="checkbox" id="gridCheck1"  onchange="location = this.value;" checked>Exclude Drinks</label>
+              {% endif %}
+          {% endif %}
+      </div>
     <div class="container-fluid">
         <div class="table_wrapper">
-            <table class ="table table-no-grid">
+            <table class ="table ">
                 <tbody>
                 <tr>
                     <td class="filter-label">Calories:</td>
                     <td>Minimum:</td>
-                    <td><input type="text" id="calorie-min" name="calorie-min"></td>
+                    <td><input type="search" id="calorie-min" class="form-control" name="calorie-min"></td>
                     <td>Maximum:</td>
-                    <td><input type="text" id="calorie-max" name="calorie-max"></td>
+                    <td><input type="search" id="calorie-max" class="form-control" name="calorie-max"></td>
                 </tr>
                 <tr>
                     <td class="filter-label">Carbs:</td>
                     <td>Minimum:</td>
-                    <td><input type="text" id="carbs-min" name="carbs-min"></td>
+                    <td><input type="search" id="carbs-min" class="form-control" name="carbs-min"></td>
                     <td>Maximum:</td>
-                    <td><input type="text" id="carbs-max" name="carbs-max"></td>
+                    <td><input type="search" id="carbs-max" class="form-control" name="carbs-max"></td>
                 </tr>
                 <tr>
                     <td class="filter-label">Fats:</td>
                     <td>Minimum:</td>
-                    <td><input type="text" id="fat-min" name="fat-min"></td>
+                    <td><input type="search" id="fat-min" class="form-control" name="fat-min"></td>
                     <td>Maximum:</td>
-                    <td><input type="text" id="fat-max" name="fat-max"></td>
+                    <td><input type="search" id="fat-max" class="form-control" name="fat-max"></td>
                 </tr>
                 <tr>
                     <td class="filter-label">Protein:</td>
                     <td>Minimum:</td>
-                    <td><input type="text" id="protein-min" name="protein-min"></td>
+                    <td><input type="search" id="protein-min" class="form-control" name="protein-min"></td>
                     <td>Maximum:</td>
-                    <td><input type="text" id="protein-max" name="protein-max"></td>
+                    <td><input type="search" id="protein-max" class="form-control" name="protein-max"></td>
                 </tr>
                 </tbody>
              </table>
