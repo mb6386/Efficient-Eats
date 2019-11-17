@@ -35,11 +35,13 @@ navbar {
 .slide-image {
     width: 100%;
     height: auto;
+    margin: 0 auto;
 }
 .carousel-caption {
-  position: absolute;
-  top: 55%;
-  transform: translateY(-50%);
+    top: 50%;
+    -webkit-transform:translate(0, -50%);
+    -ms-transform:translate(0, -50%);
+    transform:translate(0, -50%);
 }
 .carousel-caption h1 {
   font-size: 800%;
@@ -56,6 +58,7 @@ navbar {
 }
 .carousel-caption h4 {
   font-size: 250%;
+  font-weight: bold;
   text-shadow: 1px 1px 6px #000;
   padding-bottom: 1rem;
 }
@@ -108,64 +111,6 @@ hr.light-100 {
   margin-top: 0.8rem;
   margin-bottom: 1rem;
 }
-
-/*---Media Queries --*/
-@media (max-width: 992px) {
-  .social a {
-    font-size: 4em;
-    padding: 2rem;
-  }
-  }
-@media (max-width: 768px) {
-.carousel-caption {
-  top: 45%;
-}
-.carousel-caption h1 {
-  font-size: 350%;
-}
-.carousel-caption h3 {
-  font-size: 140%;
-  font-weight: 400%;
-  padding-bottom: 0.2rem;
-}
-.carousel-caption .btn {
-  font-size: 95%;
-  padding: 8px 14px;
-}
-.display-4 {
-  font-size: 200%;
-}
-}
-@media (max-width: 576px) {
-    .social a {
-    font-size: 2.5em;
-    padding: 1.2rem;
-  }
-.carousel-caption {
-  top: 40%;
-}
-.carousel-caption h1 {
-  font-size: 250%;
-}
-.carousel-caption h3 {
-  font-size: 110%;
-}
-.carousel-caption .btn {
-  font-size: 90%;
-  padding: 4px 8px;
-}
-.carousel-indicators {
-  display: none;
-}
-.display-4 {
-  font-size: 160%;
-}
-.social a {
-  font-size: 2em;
-  padding: 0.7em;
-}
-}
-
 
 /*---Firefox Bug Fix --*/
 .carousel-item {
@@ -360,22 +305,26 @@ Extra (xl) large devices (large desktops, 1200px and up)
     font-size: 1.0rem;
     padding: 0.5 rem;
 }
-
-/* thumbnails */
-.calculator-restaurant-thumbnail {
-    height: 125px;
-    width: auto;
-    padding: 20px;
+.table-restaurant-name {
+    font-size: 1.1rem;
 }
+/* thumbnails */
 .order-restaurant-thumbnail {
-    height: 40px;
+    height: 32px;
     width: auto;
 }
 .nutrition-restaurant-thumbnail {
-    width: 250px;
+    width: 100%;
     height: auto;
 }
-
+.nutrition-table-restaurant-thumbnail {
+    height: 32px;
+    width: auto;
+}
+/* Text */
+.nutrition-subtext{
+    font-size: 1.2rem;
+}
 /* piechart */
 #piechart {
   width: 100%;
@@ -384,19 +333,15 @@ Extra (xl) large devices (large desktops, 1200px and up)
 
 /* Nutrition Label */
 @charset "UTF-8";
-body {
-  font-size: small;
-  line-height: 1.4;
-}
 
-p {
-  margin: 0;
+#nutrition-label {
 }
-
+#piechart {
+    display: inline-block;
+}
 .performance-facts {
   border: 1px solid black;
-  margin: 20px;
-  float: left;
+  margin: 0 auto;
   width: 370px;
   padding: 0.5rem;
 }
@@ -479,78 +424,59 @@ p {
 .thin-end {
   border-bottom: 1px solid black;
 }
-input {
-  border: 1px solid transparent;
-  background-color: #f1f1f1;
-  padding: 10px;
-  font-size: 16px;
-}
-input[type=text] {
-  background-color: #f1f1f1;
-  width: 100%;
-}
-input[type=submit] {
-  background-color: DodgerBlue;
-  color: #fff;
-}
+
 
 /*---Media Queries --*/
-@media (max-width: 992px) {
-  .social a {
-    font-size: 4em;
-    padding: 2rem;
-  }
-  }
-@media (max-width: 768px) {
-.carousel-caption {
-  top: 45%;
+@media only screen and (max-width: 992px) {
+    .social a {
+        font-size: 4em;
+        padding: 2rem;
+    }
+    .carousel-caption h1 {
+      font-size: 750%;
+    }
+    .carousel-caption h3 {
+      font-size: 300%;
+      font-weight: 400%;
+      margin-bottom: 0.2rem;
+    }
+    .carousel-caption h4 {
+      font-size: 220%;
+      font-weight: 300%;
+      margin-bottom: 0.2rem;
+    }
 }
-.carousel-caption h1 {
-  font-size: 650%;
+@media only screen and (max-width: 768px) {
+    .carousel-caption h1 {
+      font-size: 650%;
+    }
+    .carousel-caption h3 {
+      font-size: 200%;
+      font-weight: 300%;
+      margin-bottom: 0.2rem;
+    }
+    .carousel-caption h4 {
+      font-size: 150%;
+      font-weight: 300%;
+      margin-bottom: 0.2rem;
+    }
 }
-.carousel-caption h3 {
-  font-size: 140%;
-  font-weight: 400%;
-  padding-bottom: 0.2rem;
-}
-.carousel-caption .btn {
-  font-size: 95%;
-  padding: 8px 14px;
-}
-.display-4 {
-  font-size: 200%;
-}
-}
-@media (max-width: 576px) {
+
+@media only screen and (max-width: 576px) {
     .social a {
     font-size: 2.5em;
     padding: 1.2rem;
-  }
-.carousel-caption {
-  top: 40%;
+   }
+    .carousel-caption h1 {
+      font-size: 550%;
+    }
+    .carousel-caption h3 {
+      font-size: 250%;
+    }
+    .carousel-caption h4 {
+      font-size: 200%;
+    }
 }
-.carousel-caption h1 {
-  font-size: 250%;
-}
-.carousel-caption h3 {
-  font-size: 110%;
-}
-.carousel-caption .btn {
-  font-size: 90%;
-  padding: 4px 8px;
-}
-.carousel-indicators {
-  display: none;
-}
-.display-4 {
-  font-size: 160%;
-}
-.social a {
-  font-size: 2em;
-  padding: 0.7em;
-}
-}
-
 /* Contact Form */
 .email-sent-message {
     text-align: center;

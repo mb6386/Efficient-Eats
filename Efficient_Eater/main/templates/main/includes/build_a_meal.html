@@ -2,7 +2,7 @@
 {% load common %}
 {% load static %}
 <div class="build-a-meal">
-    <h2>Build a Meal</h2><br>
+    <h2>&nbspBuild a Meal</h2><br>
     <h5>&nbsp&nbsp Select a Restaurant</h5>
     <form method="GET">
       <div class="form-group col-md-4">
@@ -110,12 +110,11 @@
     {% if order|length != 0 %}
     <div class="Results">
     {% include 'main/includes/nutrition_facts.html' %}
-
     <table id="orderTable" class="table table-striped">
         <thead>
             <tr>
                 <th><b>#</b></th>
-                <th></th>
+                <th>Restaurant</th>
                 <th>Item</th>
                 <th>Quantity</th>
                 <th>Calories</th>
@@ -128,7 +127,7 @@
             {% for itemList in order %}
             <tr>
                 <td class="item-numbers">{{ itemList.0 }}.</td>
-                <td><img src="/static/main/{{ itemList.8.url }}" class="order-restaurant-thumbnail"></td>
+                <td><div class="row"><img src="/static/main/{{ itemList.8.url }}" class="order-restaurant-thumbnail">&nbsp&nbsp<div class="table-restaurant-name">{{ itemList.12 }}</div></div></td>
                 <td><a href="/lookup/{{ itemList.12|slugify }}/{{ itemList.1|slugify }}/" target="_blank">{{ itemList.1 }}</a></td>
                 <td>{{ itemList.2 }}</td>
                 <td>{{ itemList.4 }}</td>

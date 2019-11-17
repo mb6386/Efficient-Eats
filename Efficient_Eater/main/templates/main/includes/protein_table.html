@@ -2,7 +2,7 @@
 {% load percentify %}
 {% load remove_trailing_zero %}
 <div class="nutritional-table">
-    <h2>Nutrition Table</h2><br>
+    <h2>&nbspNutrition Table</h2><br>
     <h5>&nbsp&nbsp Select a Restaurant</h5>
     <div class="form-group col-md-4">
       <select id="inputState" name="restaurantName" class="form-control" onchange="location = this.value;">
@@ -86,7 +86,7 @@
                         {% for item in items %}
                                 <tr>
                                     {% filter capfirst %}
-                                    <td>{{ item.restaurant }}</td>
+                                    <td><div class="row">&nbsp<img src="/static/main/{{ item.restaurant.logo.url }}" class="nutrition-table-restaurant-thumbnail">&nbsp&nbsp<div class="table-restaurant-name">{{ item.restaurant }}</div></div></td>
                                     <td><a href="/lookup/{{ item.restaurant.slug }}/{{ item.slug }}/" target="_blank">{{ item.name }}</a></td>
                                     {% endfilter %}
                                     <td>{{ item.calories }}</td>

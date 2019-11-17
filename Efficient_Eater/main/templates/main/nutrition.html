@@ -1,6 +1,7 @@
 {% extends 'main/header.html' %}
 {% block content %}
 <main role="main" class="container nutrition-container">
+    {% include 'main/includes/nutrition_description.html' %}
     {% include 'main/includes/protein_table.html' %}
 </main>
 {% endblock %}

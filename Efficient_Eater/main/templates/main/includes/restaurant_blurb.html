@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <h2>{{chosen_restaurant.name}}</h2>
             <div class="row padding">
-                <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                <div class="col-sm-12 col-md-4 col-lg-2 col-xl-2">
                     <div class="Logo">
                         <img class="nutrition-restaurant-thumbnail" src="{% static chosen_restaurant.logo.url|add_main %}">
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-8 col-lg-9 col-xl-9">
+                <div class="col-sm-12 col-md-8 col-lg-10 col-xl-10">
                     <div id="blurb-description">
                         <p>{{ chosen_restaurant.description|blurbify }}</p>
                     </div>
