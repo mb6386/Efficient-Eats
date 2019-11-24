@@ -109,8 +109,7 @@
 </form>
     {% if order|length != 0 %}
     <div class="Results">
-    {% include 'main/includes/nutrition_facts.html' %}
-    <table id="orderTable" class="table table-striped">
+    <table id="orderTable" class="table table-striped col-sm-12"">
         <thead>
             <tr>
                 <th><b>#</b></th>
@@ -138,6 +137,7 @@
         {% endfor %}
         </tbody>
     </table>
+     {% include 'main/includes/nutrition_facts.html' %}
     </div>
     {% endif %}
 </div>

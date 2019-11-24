@@ -10,7 +10,7 @@ html, body {
 /* Images */
 
 .center {
-  display: block;
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
@@ -329,19 +329,16 @@ Extra (xl) large devices (large desktops, 1200px and up)
 .nutrition-subtext{
     font-size: 1.2rem;
 }
-/* piechart */
-#piechart {
-  width: 100%;
-  height: 100%;
-}
 
-/* Nutrition Label */
+/* Nutrition Facts */
 @charset "UTF-8";
 
 #nutrition-label {
 }
 #piechart {
     display: inline-block;
+    width: 100%;
+    height: auto;
 }
 .performance-facts {
   border: 1px solid black;
