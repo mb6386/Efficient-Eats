@@ -309,6 +309,10 @@ Extra (xl) large devices (large desktops, 1200px and up)
     font-size: 1.1rem;
 }
 /* thumbnails */
+.methodology-page-image {
+    width: 100%;
+    height: auto;
+}
 .order-restaurant-thumbnail {
     height: 32px;
     width: auto;
@@ -433,10 +437,10 @@ Extra (xl) large devices (large desktops, 1200px and up)
         padding: 2rem;
     }
     .carousel-caption h1 {
-      font-size: 750%;
+      font-size: 500%;
     }
     .carousel-caption h3 {
-      font-size: 300%;
+      font-size: 250%;
       font-weight: 400%;
       margin-bottom: 0.2rem;
     }
