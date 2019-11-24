@@ -2,54 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8afbef91-9912-4c56-9ea4-3bc24eb738ba" name="Default Changelist" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/Big-mac.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/iifym-display.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/applebees.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/arbys.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/burger-king.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/carls-jr.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/chick-fil-a.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/chipotle.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/culvers.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/dairy-queen.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/dominos-pizza.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/dominos.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/dunkin-donuts.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/five-guys.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/hardees.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/in-n-out-burger.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/jack-in-the-box.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/jimmy-johns.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/kfc-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/kfc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/kfc_ApQtR7S.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/kfc_Wbo5kvq.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/kfc_iDoMkgr.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/kfc_vPgyeq6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/kfc_xcyPwYe.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/kfcccc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/little-caesars-pizza.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/little-caesars.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/little-caesars_LsQDHez.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/mcdonalds.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/panda-express.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/panera-bread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/panera.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/papa-johns.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/pizza-hut.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/popeyes.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/sonic.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/starbucks.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/subway.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/taco-bell.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/tim-hortons.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/wendys.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/white-castle.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/logos/zaxbys.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/static/main/css/styling.css" afterPath="$PROJECT_DIR$/main/static/main/css/styling.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/includes/build_a_meal.html" afterPath="$PROJECT_DIR$/main/templates/main/includes/build_a_meal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/templates/main/includes/nutrition_facts.html" afterPath="$PROJECT_DIR$/main/templates/main/includes/nutrition_facts.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/applebees.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/applebees.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/arbys.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/arbys.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/chick-fil-a.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/chick-fil-a.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/dairy-queen.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/dairy-queen.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/dominos-pizza.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/dominos-pizza.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/dunkin-donuts.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/dunkin-donuts.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/five-guys.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/five-guys.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/in-n-out-burger.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/in-n-out-burger.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/kfc-logo.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/kfc-logo.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/little-caesars-pizza.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/little-caesars-pizza.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/panda-express.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/panda-express.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/panera-bread.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/panera-bread.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/papa-johns.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/papa-johns.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/pizza-hut.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/pizza-hut.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/popeyes.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/popeyes.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/sonic.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/sonic.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/starbucks.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/starbucks.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/subway.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/subway.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/taco-bell.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/taco-bell.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/waffle-house.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/waffle-house.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/wendys.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/wendys.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/main/static/main/media/Logos/zaxbys.png" afterPath="$PROJECT_DIR$/main/static/main/media/logos/zaxbys.png" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -336,6 +310,14 @@
               <item name="Efficient_Eats" type="b2602c69:ProjectViewProjectNode" />
               <item name="Efficient_Eats" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Efficient_Eats" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Efficient_Eats" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -469,9 +451,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="169" y="23" width="892" height="831" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42705882" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42705882" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
