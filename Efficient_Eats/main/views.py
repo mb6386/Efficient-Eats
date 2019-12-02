@@ -182,8 +182,8 @@ def calculate_nutrition(order):
 def lookup(request, restaurant_slug="", item_slug=""):
     template_name = "main/lookup.html"
     chosen_restaurant = "All"
-    restaurants = Restaurant.objects.all().orderby("name")
-    items = Item.objects.all().orderby("name")
+    restaurants = Restaurant.objects.all().order_by("name")
+    items = Item.objects.all().order_by("name")
     myItem = [request.GET.get('myInput')]
     if restaurant_slug != "":
         chosen_restaurant = Restaurant.objects.filter(slug__iexact=restaurant_slug)[0]
